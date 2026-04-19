@@ -1,10 +1,12 @@
 ---
 title: HTTP Server, APIs, and Express
 slug: learning/nodejs/http-server-apis-express
-description: Learn how Node.js handles HTTP servers, request and response lifecycles, API design, middleware thinking, and how Express fits into modern backend development.
+description: Learn how Node.js handles HTTP servers, request and response lifecycles, API design fundamentals, and how that foundation leads into a deeper Express learning path.
 ---
 
 One of the most common reasons people learn Node.js is to build HTTP APIs.
+
+This page is the runtime-level foundation. After this, the site continues into a dedicated multi-page Express learning path.
 
 ## The Native `http` Module
 
@@ -45,6 +47,8 @@ Frameworks like Express solve repetitive problems:
 - error forwarding
 - reusable HTTP conventions
 
+The point of this page is to understand why those abstractions are useful before relying on them everywhere.
+
 ## Express Basics
 
 ```js
@@ -62,9 +66,21 @@ app.listen(3000)
 
 Express is still valuable for teaching because it is simple and widely understood.
 
+For broader Express coverage, continue to:
+
+1. [Express Overview](/learning/nodejs/express/overview/)
+2. [Setup, Routing, and Request-Response Flow](/learning/nodejs/express/setup-routing-request-response/)
+3. [Middleware and Request Lifecycle](/learning/nodejs/express/middleware-request-lifecycle/)
+4. [Validation and Error Handling](/learning/nodejs/express/validation-error-handling/)
+5. [Auth, Security, and API Hardening](/learning/nodejs/express/auth-security-api-hardening/)
+6. [Files, Static Content, and Response Patterns](/learning/nodejs/express/files-static-content-response-patterns/)
+7. [Architecture and Testing](/learning/nodejs/express/architecture-and-testing/)
+8. [Performance and Production Delivery](/learning/nodejs/express/performance-and-production-delivery/)
+9. [Modern Express Coverage](/learning/nodejs/express/modern-express-coverage/)
+
 ## Middleware Thinking
 
-Middleware is one of the most important Express ideas.
+Middleware is one of the most important Express ideas, and it is expanded in the dedicated Express section.
 
 Typical middleware responsibilities:
 
@@ -119,7 +135,7 @@ app.use((err, _req, res, _next) => {
 })
 ```
 
-Teaching students this early prevents a lot of messy controller code.
+Teaching students this early prevents a lot of messy controller code. The full patterns, including async error strategy and validation boundaries, are covered in the Express track.
 
 ## Modern Built-In HTTP Helpers
 
@@ -155,6 +171,6 @@ These topics are part of real backend engineering, not optional extras.
 
 - frameworks sit on top of Node.js runtime behavior
 - the native `http` module helps learners understand what frameworks abstract
-- Express is useful for learning middleware and API structure
+- Express is useful for learning middleware and API structure, but it deserves broader study than one summary page
 - validation and error shaping are mandatory for serious APIs
 - modern backend design includes timeouts, cancellation, and consistent responses

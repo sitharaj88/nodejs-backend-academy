@@ -19,6 +19,7 @@ Use it when you want:
 - JavaScript learning path with multiple pages
 - TypeScript learning path with multiple pages
 - Node.js learning path with multiple pages
+- backend module tracks for tooling, databases, security, architecture, testing, performance, real-time APIs, DevOps, and system design
 - progressive concept coverage from basics to advanced topics
 - examples designed for learning, not only for backend curriculum summaries
 
@@ -62,8 +63,29 @@ Then follow the Node.js pages in order:
 3. [File System, Path, Buffer, and Process](/learning/nodejs/filesystem-path-buffer-process/)
 4. [Events, Streams, and Async Patterns](/learning/nodejs/events-streams-async-patterns/)
 5. [HTTP Server, APIs, and Express](/learning/nodejs/http-server-apis-express/)
-6. [Databases, Validation, and Auth](/learning/nodejs/databases-validation-auth/)
-7. [Testing, Debugging, and Error Handling](/learning/nodejs/testing-debugging-error-handling/)
-8. [Performance, Scaling, and Production Readiness](/learning/nodejs/performance-scaling-production-readiness/)
-9. [Node.js Versions and Ecosystem History](/learning/nodejs/nodejs-versions-ecosystem-history/)
-10. [Modern Node.js Coverage](/learning/nodejs/modern-nodejs-coverage/)
+6. [Express Overview](/learning/nodejs/express/overview/)
+7. [Setup, Routing, and Request-Response Flow](/learning/nodejs/express/setup-routing-request-response/)
+8. [Middleware and Request Lifecycle](/learning/nodejs/express/middleware-request-lifecycle/)
+9. [Validation and Error Handling](/learning/nodejs/express/validation-error-handling/)
+10. [Auth, Security, and API Hardening](/learning/nodejs/express/auth-security-api-hardening/)
+11. [Files, Static Content, and Response Patterns](/learning/nodejs/express/files-static-content-response-patterns/)
+12. [Architecture and Testing](/learning/nodejs/express/architecture-and-testing/)
+13. [Performance and Production Delivery](/learning/nodejs/express/performance-and-production-delivery/)
+14. [Modern Express Coverage](/learning/nodejs/express/modern-express-coverage/)
+15. [Databases, Validation, and Auth](/learning/nodejs/databases-validation-auth/)
+16. [Testing, Debugging, and Error Handling](/learning/nodejs/testing-debugging-error-handling/)
+17. [Performance, Scaling, and Production Readiness](/learning/nodejs/performance-scaling-production-readiness/)
+18. [Node.js Versions and Ecosystem History](/learning/nodejs/nodejs-versions-ecosystem-history/)
+19. [Modern Node.js Coverage](/learning/nodejs/modern-nodejs-coverage/)
+
+After the language and runtime foundations, continue with the backend module tracks:
+
+1. [Tooling Overview](/learning/tooling/overview/)
+2. [Databases Overview](/learning/databases/overview/)
+3. [Security Overview](/learning/security/overview/)
+4. [Architecture Overview](/learning/architecture/overview/)
+5. [Testing Overview](/learning/testing/overview/)
+6. [Performance Overview](/learning/performance/overview/)
+7. [Real-Time Overview](/learning/realtime/overview/)
+8. [DevOps Overview](/learning/devops/overview/)
+9. [System Design Overview](/learning/system-design/overview/)

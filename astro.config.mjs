@@ -46,6 +46,84 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Phase Roadmap',
+          items: [
+            {
+              label: 'Phase 1: Foundation & Runtime',
+              slug: 'roadmap/phase-1-foundation-runtime',
+            },
+            {
+              label: 'Phase 2: APIs, Data & Security',
+              slug: 'roadmap/phase-2-api-engineering-data',
+            },
+            {
+              label: 'Phase 3: Architecture, Quality & Scale',
+              slug: 'roadmap/phase-3-architecture-quality-scale',
+            },
+            {
+              label: 'Phase 4: Delivery & Career Readiness',
+              slug: 'roadmap/phase-4-production-delivery-career',
+            },
+          ],
+        },
+        {
+          label: 'Module Library',
+          items: [
+            {
+              label: 'Module 01: JavaScript Foundation',
+              slug: 'modules/module-01-javascript-foundation',
+            },
+            {
+              label: 'Module 02: Node.js Core Runtime',
+              slug: 'modules/module-02-nodejs-core-runtime',
+            },
+            {
+              label: 'Module 03: NPM, Tooling & Setup',
+              slug: 'modules/module-03-npm-tooling-project-setup',
+            },
+            {
+              label: 'Module 04: Express.js & REST APIs',
+              slug: 'modules/module-04-express-rest-api-development',
+            },
+            {
+              label: 'Module 05: Databases & Data Modeling',
+              slug: 'modules/module-05-databases-data-modeling',
+            },
+            {
+              label: 'Module 06: Auth, Authorization & Security',
+              slug: 'modules/module-06-auth-authorization-security',
+            },
+            {
+              label: 'Module 07: Architecture & Clean Design',
+              slug: 'modules/module-07-architecture-clean-design',
+            },
+            {
+              label: 'Module 08: Testing & Debugging',
+              slug: 'modules/module-08-testing-debugging-code-quality',
+            },
+            {
+              label: 'Module 09: Performance & Caching',
+              slug: 'modules/module-09-performance-caching-scalability',
+            },
+            {
+              label: 'Module 10: Real-Time & Advanced APIs',
+              slug: 'modules/module-10-realtime-advanced-apis',
+            },
+            {
+              label: 'Module 11: DevOps & Deployment',
+              slug: 'modules/module-11-devops-deployment-production-readiness',
+            },
+            {
+              label: 'Module 12: System Design & Microservices',
+              slug: 'modules/module-12-system-design-microservices-basics',
+            },
+            {
+              label: 'Module 13: Collaboration & Career',
+              slug: 'modules/module-13-collaboration-career-readiness',
+            },
+          ],
+        },
+        {
           label: 'Learning',
           items: [
             {
@@ -182,6 +260,47 @@ export default defineConfig({
                   slug: 'learning/nodejs/http-server-apis-express',
                 },
                 {
+                  label: 'Express.js Learning Path',
+                  items: [
+                    {
+                      label: 'Express Overview',
+                      slug: 'learning/nodejs/express/overview',
+                    },
+                    {
+                      label: 'Setup, Routing, and Request-Response Flow',
+                      slug: 'learning/nodejs/express/setup-routing-request-response',
+                    },
+                    {
+                      label: 'Middleware and Request Lifecycle',
+                      slug: 'learning/nodejs/express/middleware-request-lifecycle',
+                    },
+                    {
+                      label: 'Validation and Error Handling',
+                      slug: 'learning/nodejs/express/validation-error-handling',
+                    },
+                    {
+                      label: 'Auth, Security, and API Hardening',
+                      slug: 'learning/nodejs/express/auth-security-api-hardening',
+                    },
+                    {
+                      label: 'Files, Static Content, and Response Patterns',
+                      slug: 'learning/nodejs/express/files-static-content-response-patterns',
+                    },
+                    {
+                      label: 'Architecture and Testing',
+                      slug: 'learning/nodejs/express/architecture-and-testing',
+                    },
+                    {
+                      label: 'Performance and Production Delivery',
+                      slug: 'learning/nodejs/express/performance-and-production-delivery',
+                    },
+                    {
+                      label: 'Modern Express Coverage',
+                      slug: 'learning/nodejs/express/modern-express-coverage',
+                    },
+                  ],
+                },
+                {
                   label: 'Databases, Validation, and Auth',
                   slug: 'learning/nodejs/databases-validation-auth',
                 },
@@ -203,83 +322,230 @@ export default defineConfig({
                 },
               ],
             },
-          ],
-        },
-        {
-          label: 'Phase Roadmap',
-          items: [
             {
-              label: 'Phase 1: Foundation & Runtime',
-              slug: 'roadmap/phase-1-foundation-runtime',
+              label: 'NPM, Tooling, and Setup',
+              items: [
+                {
+                  label: 'Tooling Overview',
+                  slug: 'learning/tooling/overview',
+                },
+                {
+                  label: 'Package Management, Semver, and Lockfiles',
+                  slug: 'learning/tooling/package-management-semver-lockfiles',
+                },
+                {
+                  label: 'Project Setup, Scripts, and Configuration',
+                  slug: 'learning/tooling/project-setup-scripts-configuration',
+                },
+                {
+                  label: 'Code Quality, Builds, and Test Workflow',
+                  slug: 'learning/tooling/code-quality-builds-test-workflow',
+                },
+                {
+                  label: 'Modern Tooling Coverage',
+                  slug: 'learning/tooling/modern-tooling-coverage',
+                },
+              ],
             },
             {
-              label: 'Phase 2: APIs, Data & Security',
-              slug: 'roadmap/phase-2-api-engineering-data',
+              label: 'Databases and Data Modeling',
+              items: [
+                {
+                  label: 'Databases Overview',
+                  slug: 'learning/databases/overview',
+                },
+                {
+                  label: 'Relational Modeling and SQL Thinking',
+                  slug: 'learning/databases/relational-modeling-sql-thinking',
+                },
+                {
+                  label: 'Document Modeling and NoSQL Patterns',
+                  slug: 'learning/databases/document-modeling-nosql-patterns',
+                },
+                {
+                  label: 'Queries, Indexes, Transactions, and Migrations',
+                  slug: 'learning/databases/queries-indexes-transactions-migrations',
+                },
+                {
+                  label: 'Modern Databases Coverage',
+                  slug: 'learning/databases/modern-databases-coverage',
+                },
+              ],
             },
             {
-              label: 'Phase 3: Architecture, Quality & Scale',
-              slug: 'roadmap/phase-3-architecture-quality-scale',
+              label: 'Auth, Authorization, and Security',
+              items: [
+                {
+                  label: 'Security Overview',
+                  slug: 'learning/security/overview',
+                },
+                {
+                  label: 'Authentication, Sessions, JWT, and OAuth',
+                  slug: 'learning/security/authentication-sessions-jwt-oauth',
+                },
+                {
+                  label: 'Authorization, RBAC, ABAC, and Ownership',
+                  slug: 'learning/security/authorization-rbac-abac-ownership',
+                },
+                {
+                  label: 'API Security, Passwords, Secrets, and Hardening',
+                  slug: 'learning/security/api-security-passwords-secrets-hardening',
+                },
+                {
+                  label: 'Modern Security Coverage',
+                  slug: 'learning/security/modern-security-coverage',
+                },
+              ],
             },
             {
-              label: 'Phase 4: Delivery & Career Readiness',
-              slug: 'roadmap/phase-4-production-delivery-career',
-            },
-          ],
-        },
-        {
-          label: 'Module Library',
-          items: [
-            {
-              label: 'Module 01: JavaScript Foundation',
-              slug: 'modules/module-01-javascript-foundation',
-            },
-            {
-              label: 'Module 02: Node.js Core Runtime',
-              slug: 'modules/module-02-nodejs-core-runtime',
-            },
-            {
-              label: 'Module 03: NPM, Tooling & Setup',
-              slug: 'modules/module-03-npm-tooling-project-setup',
-            },
-            {
-              label: 'Module 04: Express.js & REST APIs',
-              slug: 'modules/module-04-express-rest-api-development',
-            },
-            {
-              label: 'Module 05: Databases & Data Modeling',
-              slug: 'modules/module-05-databases-data-modeling',
+              label: 'Architecture and Clean Design',
+              items: [
+                {
+                  label: 'Architecture Overview',
+                  slug: 'learning/architecture/overview',
+                },
+                {
+                  label: 'Layered Architecture and Boundaries',
+                  slug: 'learning/architecture/layered-architecture-and-boundaries',
+                },
+                {
+                  label: 'Clean Architecture and Dependency Flow',
+                  slug: 'learning/architecture/clean-architecture-and-dependency-flow',
+                },
+                {
+                  label: 'Modular Monolith Patterns and Pragmatism',
+                  slug: 'learning/architecture/modular-monolith-patterns-and-pragmatism',
+                },
+                {
+                  label: 'Modern Architecture Coverage',
+                  slug: 'learning/architecture/modern-architecture-coverage',
+                },
+              ],
             },
             {
-              label: 'Module 06: Auth, Authorization & Security',
-              slug: 'modules/module-06-auth-authorization-security',
+              label: 'Testing and Debugging',
+              items: [
+                {
+                  label: 'Testing Overview',
+                  slug: 'learning/testing/overview',
+                },
+                {
+                  label: 'Unit, Integration, and API Testing',
+                  slug: 'learning/testing/unit-integration-api-testing',
+                },
+                {
+                  label: 'Mocking, Fixtures, Contracts, and Test Data',
+                  slug: 'learning/testing/mocking-fixtures-contracts-test-data',
+                },
+                {
+                  label: 'Debugging, Logging, and Diagnostics',
+                  slug: 'learning/testing/debugging-logging-diagnostics',
+                },
+                {
+                  label: 'Modern Testing Coverage',
+                  slug: 'learning/testing/modern-testing-coverage',
+                },
+              ],
             },
             {
-              label: 'Module 07: Architecture & Clean Design',
-              slug: 'modules/module-07-architecture-clean-design',
+              label: 'Performance and Caching',
+              items: [
+                {
+                  label: 'Performance Overview',
+                  slug: 'learning/performance/overview',
+                },
+                {
+                  label: 'Performance, Profiling, and the Event Loop',
+                  slug: 'learning/performance/performance-profiling-event-loop',
+                },
+                {
+                  label: 'Caching Strategies and Consistency',
+                  slug: 'learning/performance/caching-strategies-and-consistency',
+                },
+                {
+                  label: 'Scaling, Reliability, and Capacity',
+                  slug: 'learning/performance/scaling-reliability-and-capacity',
+                },
+                {
+                  label: 'Modern Performance Coverage',
+                  slug: 'learning/performance/modern-performance-coverage',
+                },
+              ],
             },
             {
-              label: 'Module 08: Testing & Debugging',
-              slug: 'modules/module-08-testing-debugging-code-quality',
+              label: 'Real-Time and Advanced APIs',
+              items: [
+                {
+                  label: 'Real-Time Overview',
+                  slug: 'learning/realtime/overview',
+                },
+                {
+                  label: 'WebSockets, Socket.IO, and Server-Sent Events',
+                  slug: 'learning/realtime/websockets-socketio-and-sse',
+                },
+                {
+                  label: 'Queues, Jobs, Webhooks, and Event-Driven Flows',
+                  slug: 'learning/realtime/queues-jobs-webhooks-and-event-driven-flows',
+                },
+                {
+                  label: 'GraphQL, gRPC, and Advanced API Shapes',
+                  slug: 'learning/realtime/graphql-grpc-and-advanced-api-shapes',
+                },
+                {
+                  label: 'Modern Real-Time Coverage',
+                  slug: 'learning/realtime/modern-realtime-coverage',
+                },
+              ],
             },
             {
-              label: 'Module 09: Performance & Caching',
-              slug: 'modules/module-09-performance-caching-scalability',
+              label: 'DevOps and Deployment',
+              items: [
+                {
+                  label: 'DevOps Overview',
+                  slug: 'learning/devops/overview',
+                },
+                {
+                  label: 'Environment, Config, Docker, and Containers',
+                  slug: 'learning/devops/environment-config-docker-containers',
+                },
+                {
+                  label: 'CI, CD, Release Flow, and Deployment',
+                  slug: 'learning/devops/ci-cd-release-flow-and-deployment',
+                },
+                {
+                  label: 'Observability, Runtime Operations, and Runbooks',
+                  slug: 'learning/devops/observability-runtime-operations-and-runbooks',
+                },
+                {
+                  label: 'Modern DevOps Coverage',
+                  slug: 'learning/devops/modern-devops-coverage',
+                },
+              ],
             },
             {
-              label: 'Module 10: Real-Time & Advanced APIs',
-              slug: 'modules/module-10-realtime-advanced-apis',
-            },
-            {
-              label: 'Module 11: DevOps & Deployment',
-              slug: 'modules/module-11-devops-deployment-production-readiness',
-            },
-            {
-              label: 'Module 12: System Design & Microservices',
-              slug: 'modules/module-12-system-design-microservices-basics',
-            },
-            {
-              label: 'Module 13: Collaboration & Career',
-              slug: 'modules/module-13-collaboration-career-readiness',
+              label: 'System Design and Microservices',
+              items: [
+                {
+                  label: 'System Design Overview',
+                  slug: 'learning/system-design/overview',
+                },
+                {
+                  label: 'System Design Fundamentals and Scalability',
+                  slug: 'learning/system-design/system-design-fundamentals-and-scalability',
+                },
+                {
+                  label: 'Microservices Boundaries and Data Consistency',
+                  slug: 'learning/system-design/microservices-boundaries-and-data-consistency',
+                },
+                {
+                  label: 'Messaging, Resilience, and Distributed Tradeoffs',
+                  slug: 'learning/system-design/messaging-resilience-and-distributed-tradeoffs',
+                },
+                {
+                  label: 'Modern System Design Coverage',
+                  slug: 'learning/system-design/modern-system-design-coverage',
+                },
+              ],
             },
           ],
         },

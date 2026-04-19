@@ -21,7 +21,17 @@ This track turns Module 03 into a real learning path covering package management
 2. [Project Setup, Scripts, and Configuration](/learning/tooling/project-setup-scripts-configuration/)
 3. [Code Quality, Builds, and Test Workflow](/learning/tooling/code-quality-builds-test-workflow/)
 4. [Modern Tooling Coverage](/learning/tooling/modern-tooling-coverage/)
+5. [Labs, Projects, Interview Questions, and Case Studies](/learning/tooling/labs-projects-interview-case-studies/)
 
 ## Goal
 
 By the end of this track, learners should be able to set up a clean Node.js project with sensible scripts, reproducible dependency management, and a maintainable quality workflow.
+
+## Practical Depth
+
+This track now includes a dedicated practical page with:
+
+- code labs
+- mini-projects
+- interview questions
+- production case studies

@@ -21,7 +21,17 @@ This track turns Module 11 into a broader learning path.
 2. [CI, CD, Release Flow, and Deployment](/learning/devops/ci-cd-release-flow-and-deployment/)
 3. [Observability, Runtime Operations, and Runbooks](/learning/devops/observability-runtime-operations-and-runbooks/)
 4. [Modern DevOps Coverage](/learning/devops/modern-devops-coverage/)
+5. [Labs, Projects, Interview Questions, and Case Studies](/learning/devops/labs-projects-interview-case-studies/)
 
 ## Goal
 
 By the end of this track, learners should understand how backend systems move from local development into dependable runtime operation.
+
+## Practical Depth
+
+This track now includes:
+
+- container and pipeline labs
+- delivery mini-projects
+- interview operations questions
+- production case studies on incidents and release flow

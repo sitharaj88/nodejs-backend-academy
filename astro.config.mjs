@@ -345,6 +345,10 @@ export default defineConfig({
                   label: 'Modern Tooling Coverage',
                   slug: 'learning/tooling/modern-tooling-coverage',
                 },
+                {
+                  label: 'Labs, Projects, Interview Questions, and Case Studies',
+                  slug: 'learning/tooling/labs-projects-interview-case-studies',
+                },
               ],
             },
             {
@@ -369,6 +373,10 @@ export default defineConfig({
                 {
                   label: 'Modern Databases Coverage',
                   slug: 'learning/databases/modern-databases-coverage',
+                },
+                {
+                  label: 'Labs, Projects, Interview Questions, and Case Studies',
+                  slug: 'learning/databases/labs-projects-interview-case-studies',
                 },
               ],
             },
@@ -395,6 +403,10 @@ export default defineConfig({
                   label: 'Modern Security Coverage',
                   slug: 'learning/security/modern-security-coverage',
                 },
+                {
+                  label: 'Labs, Projects, Interview Questions, and Case Studies',
+                  slug: 'learning/security/labs-projects-interview-case-studies',
+                },
               ],
             },
             {
@@ -419,6 +431,10 @@ export default defineConfig({
                 {
                   label: 'Modern Architecture Coverage',
                   slug: 'learning/architecture/modern-architecture-coverage',
+                },
+                {
+                  label: 'Labs, Projects, Interview Questions, and Case Studies',
+                  slug: 'learning/architecture/labs-projects-interview-case-studies',
                 },
               ],
             },
@@ -445,6 +461,10 @@ export default defineConfig({
                   label: 'Modern Testing Coverage',
                   slug: 'learning/testing/modern-testing-coverage',
                 },
+                {
+                  label: 'Labs, Projects, Interview Questions, and Case Studies',
+                  slug: 'learning/testing/labs-projects-interview-case-studies',
+                },
               ],
             },
             {
@@ -469,6 +489,10 @@ export default defineConfig({
                 {
                   label: 'Modern Performance Coverage',
                   slug: 'learning/performance/modern-performance-coverage',
+                },
+                {
+                  label: 'Labs, Projects, Interview Questions, and Case Studies',
+                  slug: 'learning/performance/labs-projects-interview-case-studies',
                 },
               ],
             },
@@ -495,6 +519,10 @@ export default defineConfig({
                   label: 'Modern Real-Time Coverage',
                   slug: 'learning/realtime/modern-realtime-coverage',
                 },
+                {
+                  label: 'Labs, Projects, Interview Questions, and Case Studies',
+                  slug: 'learning/realtime/labs-projects-interview-case-studies',
+                },
               ],
             },
             {
@@ -520,6 +548,10 @@ export default defineConfig({
                   label: 'Modern DevOps Coverage',
                   slug: 'learning/devops/modern-devops-coverage',
                 },
+                {
+                  label: 'Labs, Projects, Interview Questions, and Case Studies',
+                  slug: 'learning/devops/labs-projects-interview-case-studies',
+                },
               ],
             },
             {
@@ -544,6 +576,10 @@ export default defineConfig({
                 {
                   label: 'Modern System Design Coverage',
                   slug: 'learning/system-design/modern-system-design-coverage',
+                },
+                {
+                  label: 'Labs, Projects, Interview Questions, and Case Studies',
+                  slug: 'learning/system-design/labs-projects-interview-case-studies',
                 },
               ],
             },

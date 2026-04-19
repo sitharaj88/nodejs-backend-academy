@@ -21,7 +21,17 @@ This track turns Module 09 into a deeper learning path.
 2. [Caching Strategies and Consistency](/learning/performance/caching-strategies-and-consistency/)
 3. [Scaling, Reliability, and Capacity](/learning/performance/scaling-reliability-and-capacity/)
 4. [Modern Performance Coverage](/learning/performance/modern-performance-coverage/)
+5. [Labs, Projects, Interview Questions, and Case Studies](/learning/performance/labs-projects-interview-case-studies/)
 
 ## Goal
 
 By the end of this track, learners should be able to reason about backend performance systematically rather than guessing at optimizations.
+
+## Practical Depth
+
+This track now includes:
+
+- event-loop and caching labs
+- performance mini-projects
+- interview tradeoff questions
+- production case studies on latency and capacity

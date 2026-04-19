@@ -21,7 +21,17 @@ This track turns Module 07 into a dedicated learning path.
 2. [Clean Architecture and Dependency Flow](/learning/architecture/clean-architecture-and-dependency-flow/)
 3. [Modular Monolith Patterns and Pragmatism](/learning/architecture/modular-monolith-patterns-and-pragmatism/)
 4. [Modern Architecture Coverage](/learning/architecture/modern-architecture-coverage/)
+5. [Labs, Projects, Interview Questions, and Case Studies](/learning/architecture/labs-projects-interview-case-studies/)
 
 ## Goal
 
 By the end of this track, learners should be able to explain why a backend codebase is structured a certain way and how to improve it without adding pointless complexity.
+
+## Practical Depth
+
+This track now includes:
+
+- refactoring labs
+- architecture mini-projects
+- interview design prompts
+- production case studies on codebase evolution

@@ -21,7 +21,17 @@ This track turns Module 05 into a deeper learning path.
 2. [Document Modeling and NoSQL Patterns](/learning/databases/document-modeling-nosql-patterns/)
 3. [Queries, Indexes, Transactions, and Migrations](/learning/databases/queries-indexes-transactions-migrations/)
 4. [Modern Databases Coverage](/learning/databases/modern-databases-coverage/)
+5. [Labs, Projects, Interview Questions, and Case Studies](/learning/databases/labs-projects-interview-case-studies/)
 
 ## Goal
 
 By the end of this track, learners should understand how data modeling choices affect correctness, performance, and maintainability.
+
+## Practical Depth
+
+This track now includes:
+
+- schema and query labs
+- mini-projects with relational and document models
+- interview question drills
+- production case studies around indexing, migrations, and consistency

@@ -21,7 +21,17 @@ This track turns Module 12 into a broader learning path.
 2. [Microservices Boundaries and Data Consistency](/learning/system-design/microservices-boundaries-and-data-consistency/)
 3. [Messaging, Resilience, and Distributed Tradeoffs](/learning/system-design/messaging-resilience-and-distributed-tradeoffs/)
 4. [Modern System Design Coverage](/learning/system-design/modern-system-design-coverage/)
+5. [Labs, Projects, Interview Questions, and Case Studies](/learning/system-design/labs-projects-interview-case-studies/)
 
 ## Goal
 
 By the end of this track, learners should be able to discuss backend systems beyond single-service code and explain the tradeoffs behind distributed design choices.
+
+## Practical Depth
+
+This track now includes:
+
+- design labs
+- architecture mini-project prompts
+- interview question sets
+- production case studies on scaling and service boundaries

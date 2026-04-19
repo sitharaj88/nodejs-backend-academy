@@ -101,6 +101,59 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: 'TypeScript Learning Path',
+              items: [
+                {
+                  label: 'TypeScript Overview',
+                  slug: 'learning/typescript/overview',
+                },
+                {
+                  label: 'Type System Foundations',
+                  slug: 'learning/typescript/type-system-foundations',
+                },
+                {
+                  label: 'Functions, Objects, and Arrays',
+                  slug: 'learning/typescript/functions-objects-arrays',
+                },
+                {
+                  label: 'Unions, Narrowing, and Type Guards',
+                  slug: 'learning/typescript/unions-narrowing-type-guards',
+                },
+                {
+                  label: 'Generics, Inference, and Constraints',
+                  slug: 'learning/typescript/generics-inference-constraints',
+                },
+                {
+                  label: 'Interfaces, Classes, and OOP',
+                  slug: 'learning/typescript/interfaces-classes-oop',
+                },
+                {
+                  label: 'Mapped, Conditional, and Template Literal Types',
+                  slug: 'learning/typescript/mapped-conditional-template-literal-types',
+                },
+                {
+                  label: 'tsconfig, Modules, and Declaration Files',
+                  slug: 'learning/typescript/tsconfig-modules-declaration-files',
+                },
+                {
+                  label: 'Runtime Validation and Node.js Integration',
+                  slug: 'learning/typescript/runtime-validation-nodejs-integration',
+                },
+                {
+                  label: 'Advanced TypeScript Patterns',
+                  slug: 'learning/typescript/advanced-typescript-patterns',
+                },
+                {
+                  label: 'Modern TypeScript Coverage',
+                  slug: 'learning/typescript/modern-typescript-coverage',
+                },
+                {
+                  label: 'TypeScript Versions and Feature History',
+                  slug: 'learning/typescript/typescript-versions-history',
+                },
+              ],
+            },
           ],
         },
         {

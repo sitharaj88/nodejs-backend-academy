@@ -18,6 +18,7 @@ Use it when you want:
 
 - JavaScript learning path with multiple pages
 - TypeScript learning path with multiple pages
+- Node.js learning path with multiple pages
 - progressive concept coverage from basics to advanced topics
 - examples designed for learning, not only for backend curriculum summaries
 
@@ -51,3 +52,18 @@ Then follow the TypeScript pages in order:
 9. [Advanced TypeScript Patterns](/learning/typescript/advanced-typescript-patterns/)
 10. [Modern TypeScript Coverage](/learning/typescript/modern-typescript-coverage/)
 11. [TypeScript Versions and Feature History](/learning/typescript/typescript-versions-history/)
+
+After TypeScript, continue with [Node.js Overview](/learning/nodejs/overview/).
+
+Then follow the Node.js pages in order:
+
+1. [Runtime Fundamentals](/learning/nodejs/runtime-fundamentals/)
+2. [Modules, Package System, and Tooling](/learning/nodejs/modules-package-system-tooling/)
+3. [File System, Path, Buffer, and Process](/learning/nodejs/filesystem-path-buffer-process/)
+4. [Events, Streams, and Async Patterns](/learning/nodejs/events-streams-async-patterns/)
+5. [HTTP Server, APIs, and Express](/learning/nodejs/http-server-apis-express/)
+6. [Databases, Validation, and Auth](/learning/nodejs/databases-validation-auth/)
+7. [Testing, Debugging, and Error Handling](/learning/nodejs/testing-debugging-error-handling/)
+8. [Performance, Scaling, and Production Readiness](/learning/nodejs/performance-scaling-production-readiness/)
+9. [Node.js Versions and Ecosystem History](/learning/nodejs/nodejs-versions-ecosystem-history/)
+10. [Modern Node.js Coverage](/learning/nodejs/modern-nodejs-coverage/)

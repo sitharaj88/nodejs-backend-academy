@@ -154,6 +154,55 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: 'Node.js Learning Path',
+              items: [
+                {
+                  label: 'Node.js Overview',
+                  slug: 'learning/nodejs/overview',
+                },
+                {
+                  label: 'Runtime Fundamentals',
+                  slug: 'learning/nodejs/runtime-fundamentals',
+                },
+                {
+                  label: 'Modules, Package System, and Tooling',
+                  slug: 'learning/nodejs/modules-package-system-tooling',
+                },
+                {
+                  label: 'File System, Path, Buffer, and Process',
+                  slug: 'learning/nodejs/filesystem-path-buffer-process',
+                },
+                {
+                  label: 'Events, Streams, and Async Patterns',
+                  slug: 'learning/nodejs/events-streams-async-patterns',
+                },
+                {
+                  label: 'HTTP Server, APIs, and Express',
+                  slug: 'learning/nodejs/http-server-apis-express',
+                },
+                {
+                  label: 'Databases, Validation, and Auth',
+                  slug: 'learning/nodejs/databases-validation-auth',
+                },
+                {
+                  label: 'Testing, Debugging, and Error Handling',
+                  slug: 'learning/nodejs/testing-debugging-error-handling',
+                },
+                {
+                  label: 'Performance, Scaling, and Production Readiness',
+                  slug: 'learning/nodejs/performance-scaling-production-readiness',
+                },
+                {
+                  label: 'Node.js Versions and Ecosystem History',
+                  slug: 'learning/nodejs/nodejs-versions-ecosystem-history',
+                },
+                {
+                  label: 'Modern Node.js Coverage',
+                  slug: 'learning/nodejs/modern-nodejs-coverage',
+                },
+              ],
+            },
           ],
         },
         {

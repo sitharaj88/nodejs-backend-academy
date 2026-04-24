@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string
+  label?: string
+}
+
+const { title, label = 'Common pitfall' } = Astro.props
+---
+
+<section class="pitfall">
+  <header>{label}</header>
+  <h4>{title}</h4>
+  <slot />
+</section>

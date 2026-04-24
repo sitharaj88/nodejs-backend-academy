@@ -1,0 +1,11 @@
+---
+interface Props {
+  title?: string
+}
+const { title = 'Checkpoint' } = Astro.props
+---
+
+<section class="checkpoint not-content">
+  <header>{title}</header>
+  <slot />
+</section>

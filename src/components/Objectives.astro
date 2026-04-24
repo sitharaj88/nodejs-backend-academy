@@ -1,0 +1,11 @@
+---
+interface Props {
+  title?: string
+}
+const { title = 'You will learn' } = Astro.props
+---
+
+<section class="lesson-objectives not-content">
+  <header>{title}</header>
+  <slot />
+</section>

@@ -1,0 +1,44 @@
+---
+interface Props {
+  level?: 'Beginner' | 'Intermediate' | 'Advanced'
+  duration?: string
+  prerequisites?: string
+  track?: string
+  updated?: string
+}
+
+const { level, duration, prerequisites, track, updated } = Astro.props
+---
+
+<dl class="lesson-meta not-content">
+  {level && (
+    <div>
+      <dt>Level</dt>
+      <dd>{level}</dd>
+    </div>
+  )}
+  {duration && (
+    <div>
+      <dt>Read</dt>
+      <dd>{duration}</dd>
+    </div>
+  )}
+  {track && (
+    <div>
+      <dt>Track</dt>
+      <dd>{track}</dd>
+    </div>
+  )}
+  {prerequisites && (
+    <div>
+      <dt>Prereq</dt>
+      <dd>{prerequisites}</dd>
+    </div>
+  )}
+  {updated && (
+    <div>
+      <dt>Updated</dt>
+      <dd>{updated}</dd>
+    </div>
+  )}
+</dl>

@@ -1,0 +1,23 @@
+---
+interface Props {
+  type?: 'info' | 'success' | 'warn' | 'danger' | 'tip'
+  title?: string
+}
+
+const { type = 'info', title } = Astro.props
+
+const defaults: Record<string, string> = {
+  info: 'Note',
+  success: 'Do this',
+  warn: 'Watch out',
+  danger: 'Don’t do this',
+  tip: 'Pro tip',
+}
+
+const label = title ?? defaults[type] ?? 'Note'
+---
+
+<aside class={`callout callout--${type}`}>
+  <header>{label}</header>
+  <slot />
+</aside>

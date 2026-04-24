@@ -1,0 +1,19 @@
+---
+interface Props {
+  badLabel?: string
+  goodLabel?: string
+}
+
+const { badLabel = 'Avoid', goodLabel = 'Prefer' } = Astro.props
+---
+
+<div class="compare not-content">
+  <div class="compare-bad">
+    <header>{badLabel}</header>
+    <slot name="bad" />
+  </div>
+  <div class="compare-good">
+    <header>{goodLabel}</header>
+    <slot name="good" />
+  </div>
+</div>

@@ -1,28 +1,45 @@
 ---
 title: Node.js Backend Development Training
-description: Professional documentation site for a full Node.js backend training roadmap, curriculum, phase plan, examples, projects, and delivery strategy.
+description: A production-grade Node.js backend academy with guided learning paths, labs, diagrams, projects, and capstones that prove you can ship real services.
 template: splash
 hero:
-  tagline: Teach Node.js backend development with a proper docs-first training portal instead of a brochure page.
+  tagline: A complete backend engineering academy for JavaScript developers who need real Node.js, APIs, data, security, testing, deployment, and system design — not a tutorial collection.
   image:
     file: ../../assets/node-roadmap-hero.svg
   actions:
-    - text: Start with the program overview
+    - text: Enter the academy
       link: /start-here/program-overview/
       icon: right-arrow
-    - text: Browse the phase roadmap
-      link: /roadmap/phase-1-foundation-runtime/
+      variant: primary
+    - text: Follow the learning path
+      link: /learning/overview/
       icon: right-arrow
-    - text: Open the brochure PDF
-      link: /nodejs-backend-brochure.pdf
-      icon: external
+    - text: View capstones
+      link: /projects/capstone-projects/
+      icon: rocket
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components'
 
-<div class="academy-intro">
-  <div class="academy-metrics">
+<div class="academy-command">
+  <section class="academy-panel academy-lead">
+    <p class="eyebrow">Backend engineering academy</p>
+    <h2>From language fundamentals to production-ready services.</h2>
+    <p>
+      The academy is structured like a real engineering program: clear phases,
+      deep concept pages with mental models and diagrams, hands-on labs with
+      success criteria, review checkpoints, and capstone work that proves
+      learners can design, build, secure, test, and operate backend systems.
+    </p>
+    <div class="academy-actions">
+      <a href="/roadmap/phase-1-foundation-runtime/">Phase roadmap →</a>
+      <a href="/projects/tools-technologies/">Tooling stack</a>
+      <a href="/nodejs-backend-brochure.pdf">Brochure PDF</a>
+    </div>
+  </section>
+
+  <section class="academy-panel academy-scoreboard" aria-label="Academy numbers">
     <div>
       <strong>13</strong>
       <span>Core modules</span>
@@ -32,44 +49,142 @@ import { Card, CardGrid } from '@astrojs/starlight/components'
       <span>Planned weeks</span>
     </div>
     <div>
-      <strong>100+</strong>
-      <span>Backend topics</span>
+      <strong>120+</strong>
+      <span>Concept pages</span>
     </div>
     <div>
       <strong>4</strong>
       <span>Capstone tracks</span>
     </div>
-  </div>
+  </section>
+</div>
 
-  <div class="academy-note">
-    <p>
-      This site turns the brochure into a real training platform. Learners can
-      discover the roadmap phase by phase, and you can use the module pages as
-      a teaching script for classes, labs, and project reviews.
-    </p>
+<section class="academy-trust" aria-label="Built for these learners">
+  <strong>Designed for</strong>
+  <ul>
+    <li>Career-switchers moving into backend</li>
+    <li>Frontend engineers going full-stack</li>
+    <li>Classroom and bootcamp delivery</li>
+    <li>Engineering teams levelling up</li>
+    <li>Interview &amp; portfolio preparation</li>
+  </ul>
+</section>
+
+<div class="academy-outcomes">
+  <div>
+    <span>01</span>
+    <strong>Runtime fluency</strong>
+    <p>Event loop, modules, streams, filesystem, process APIs, async behavior, and Node.js operational limits — explained with diagrams and runnable code.</p>
+  </div>
+  <div>
+    <span>02</span>
+    <strong>API engineering</strong>
+    <p>Express, REST conventions, validation, auth, error contracts, database access, and production-ready route design with real patterns — not toy handlers.</p>
+  </div>
+  <div>
+    <span>03</span>
+    <strong>Delivery discipline</strong>
+    <p>Testing pyramid, debugging, structured logs, observability, caching, containers, CI/CD, blue-green &amp; canary, and review-quality documentation.</p>
+  </div>
+  <div>
+    <span>04</span>
+    <strong>System thinking</strong>
+    <p>Architecture boundaries, modeling trade-offs, scale and consistency, messaging, real-time flows, resilience, and capstone design reviews.</p>
   </div>
 </div>
 
-## Why This Structure Works
+## Academy Tracks
 
 <CardGrid stagger>
-  <Card title="Docs-first learning flow" icon="open-book">
-    Starlight gives you structured navigation, search, table of contents, and
-    readable long-form content out of the box.
+  <Card title="JavaScript and TypeScript" icon="seti:javascript">
+    Build the language base required for serious backend code: scope, async
+    behavior, modules, typing, generics, runtime validation, and practical
+    Node.js integration.
   </Card>
-  <Card title="Phase-based progression" icon="seti:timeline">
-    The curriculum is grouped into four clear phases so students see the
-    learning arc from JavaScript foundations to production delivery.
+  <Card title="Node.js and Express" icon="seti:node">
+    Move from runtime fundamentals into servers, routing, middleware,
+    validation, security, response patterns, and maintainable service structure.
   </Card>
-  <Card title="Module-level teaching pages" icon="pencil">
-    Each module page includes outcomes, lecture flow, labs, examples, and exit
-    criteria to support classroom delivery.
+  <Card title="Data and Security" icon="database">
+    Model relational and document data, reason about indexes and transactions,
+    and implement authentication, authorization, secrets, and API hardening.
   </Card>
-  <Card title="Project-driven outcomes" icon="seti:node">
-    Capstones connect the roadmap to real backend products including commerce,
-    SaaS, social, and real-time systems.
+  <Card title="Production Engineering" icon="setting">
+    Practice testing, debugging, performance profiling, caching, queues,
+    observability, containers, deployment, and system design trade-offs.
   </Card>
 </CardGrid>
+
+## Curriculum Preview
+
+<div class="academy-curriculum">
+  <article class="academy-curriculum-card">
+    <span>Phase 1 · Weeks 1–6</span>
+    <strong>Foundation &amp; Runtime</strong>
+    <p>Speak the language, understand the runtime, set up real projects.</p>
+    <ul>
+      <li>JavaScript: scope, closures, async, modules</li>
+      <li>TypeScript: types, generics, narrowing, runtime validation</li>
+      <li>Node.js: event loop, streams, buffers, process</li>
+      <li>Tooling: npm, semver, scripts, lint, format</li>
+    </ul>
+  </article>
+  <article class="academy-curriculum-card">
+    <span>Phase 2 · Weeks 7–14</span>
+    <strong>APIs, Data &amp; Security</strong>
+    <p>Build REST APIs backed by real databases with real auth.</p>
+    <ul>
+      <li>Express: routing, middleware, validation, errors</li>
+      <li>SQL &amp; NoSQL: schemas, indexes, transactions</li>
+      <li>Auth: sessions, JWT, OAuth, RBAC/ABAC</li>
+      <li>API hardening: secrets, headers, rate limits</li>
+    </ul>
+  </article>
+  <article class="academy-curriculum-card">
+    <span>Phase 3 · Weeks 15–22</span>
+    <strong>Architecture, Quality &amp; Scale</strong>
+    <p>Design for change, prove behavior, and stay fast under load.</p>
+    <ul>
+      <li>Layered &amp; clean architecture, modular monolith</li>
+      <li>Testing pyramid, mocking strategy, contracts</li>
+      <li>Profiling, caching, queues, advanced APIs</li>
+      <li>WebSockets, SSE, GraphQL, gRPC</li>
+    </ul>
+  </article>
+  <article class="academy-curriculum-card">
+    <span>Phase 4 · Weeks 23–27</span>
+    <strong>Delivery &amp; Career</strong>
+    <p>Operate production services and present work like a senior.</p>
+    <ul>
+      <li>Docker, CI/CD, release flow, rollback</li>
+      <li>Observability, SLOs, runbooks, on-call</li>
+      <li>System design for microservices &amp; messaging</li>
+      <li>Capstones, reviews, interview readiness</li>
+    </ul>
+  </article>
+  <article class="academy-curriculum-card">
+    <span>Labs</span>
+    <strong>Hands-on by default</strong>
+    <p>Every lesson pairs with a lab that has explicit success criteria.</p>
+    <ul>
+      <li>Runnable code, not pseudocode</li>
+      <li>Debug-a-broken-service exercises</li>
+      <li>Scenario-based &ldquo;what would you do&rdquo; drills</li>
+      <li>Architecture sketches and reviews</li>
+    </ul>
+  </article>
+  <article class="academy-curriculum-card">
+    <span>Assessment</span>
+    <strong>Portfolio + interviews</strong>
+    <p>Graduate with a portfolio that survives a senior code review.</p>
+    <ul>
+      <li>4 capstone tracks with scope &amp; rubric</li>
+      <li>Checkpoints after every track</li>
+      <li>Interview drills per module</li>
+      <li>Production case studies</li>
+    </ul>
+  </article>
+</div>
 
 ## Learning Journey
 
@@ -96,27 +211,43 @@ import { Card, CardGrid } from '@astrojs/starlight/components'
   </a>
 </div>
 
-## What Learners Get
+## Studio Experience
 
 <CardGrid>
-  <Card title="Backend mindset" icon="setting">
-    Learners understand why Node.js works the way it does, not just how to copy
-    examples.
+  <Card title="Guided labs with success criteria" icon="pencil">
+    Every lab states what a passing result looks like — not just &ldquo;try this.&rdquo;
+    Labs include implementation tasks, debugging moments, and exit checks.
   </Card>
-  <Card title="Professional code habits" icon="checklist">
-    Validation, testing, logging, rate limiting, and deployment are embedded
-    into the curriculum rather than added at the end.
+  <Card title="Portfolio capstones" icon="rocket">
+    Four ambitious tracks — commerce API, social platform, SaaS backend,
+    real-time support — each with milestones, review rubric, and deploy targets.
   </Card>
-  <Card title="Employer-facing projects" icon="rocket">
-    The program finishes with capstones that can be demonstrated in interviews
-    and improved over time.
+  <Card title="Engineering reviews" icon="checklist">
+    Reviews focus on naming, validation, error handling, architecture,
+    testability, documentation, deployment quality, and operational behavior.
+  </Card>
+  <Card title="Diagrams &amp; mental models" icon="puzzle">
+    Event loop, request lifecycle, cache hierarchy, CI/CD flow, microservice
+    boundaries — the ideas you need to see, not just read.
   </Card>
 </CardGrid>
 
-## Recommended Way To Use This Site
+## Start The Program
 
-1. Start with [Program Overview](/start-here/program-overview/) to understand the complete roadmap.
-2. Use the new [Learning Overview](/learning/overview/) when you want learner-facing concept pages, starting with the multi-page [JavaScript Overview](/learning/javascript/overview/).
-3. Use [Training Format](/start-here/training-format/) to plan classroom rhythm, labs, and assessments.
-4. Teach the [phase roadmap](/roadmap/phase-1-foundation-runtime/) in order, then use each module page during delivery.
-5. Finish by aligning students to a [capstone project](/projects/capstone-projects/) and the [tools reference](/projects/tools-technologies/).
+<div class="academy-start">
+  <a href="/start-here/program-overview/">
+    <span>Start here</span>
+    <strong>Program Overview</strong>
+    <p>Understand the audience, prerequisites, outcomes, and full curriculum shape.</p>
+  </a>
+  <a href="/learning/overview/">
+    <span>Learn</span>
+    <strong>Learning Overview</strong>
+    <p>Enter the concept-by-concept study path across JavaScript, TypeScript, Node.js, and backend engineering.</p>
+  </a>
+  <a href="/projects/capstone-projects/">
+    <span>Build</span>
+    <strong>Capstone Projects</strong>
+    <p>Choose a project track and evaluate it against production-minded backend criteria.</p>
+  </a>
+</div>

@@ -1,0 +1,24 @@
+---
+interface Topic {
+  eyebrow?: string
+  title: string
+  description?: string
+  href: string
+}
+
+interface Props {
+  topics: Topic[]
+}
+
+const { topics } = Astro.props
+---
+
+<nav class="topic-grid not-content" aria-label="Topics">
+  {topics.map((t) => (
+    <a href={t.href}>
+      {t.eyebrow && <span>{t.eyebrow}</span>}
+      <strong>{t.title}</strong>
+      {t.description && <p>{t.description}</p>}
+    </a>
+  ))}
+</nav>

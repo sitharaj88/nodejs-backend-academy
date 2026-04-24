@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string
+  duration?: string
+  difficulty?: 'Easy' | 'Medium' | 'Hard'
+  stack?: string
+}
+const { title, duration, difficulty, stack } = Astro.props
+---
+
+<section class="lab">
+  <h4>{title}</h4>
+  {(duration || difficulty || stack) && (
+    <div class="lab-meta">
+      {duration && <span>⏱ {duration}</span>}
+      {difficulty && <span>● {difficulty}</span>}
+      {stack && <span>▸ {stack}</span>}
+    </div>
+  )}
+  <slot />
+</section>

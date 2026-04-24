@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string
+  label?: string
+}
+
+const { title, label = 'Key concept' } = Astro.props
+---
+
+<section class="key-concept not-content">
+  <header>{label}</header>
+  <h4>{title}</h4>
+  <slot />
+</section>

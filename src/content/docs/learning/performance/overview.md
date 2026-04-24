@@ -1,37 +1,39 @@
 ---
-title: Performance Overview
+title: Performance and Caching Overview
 slug: learning/performance/overview
-description: Overview for the performance and caching learning track, covering runtime cost, profiling, caching, scaling, and reliability thinking.
+description: The performance track — profiling the event loop, caching strategies that stay correct, and scaling tactics that do not break correctness under load.
 ---
 
-Performance is not about one benchmark number. It is about latency, throughput, reliability, and how systems behave under realistic load.
+import LessonMeta from '../../../../components/LessonMeta.astro'
+import Objectives from '../../../../components/Objectives.astro'
+import TopicGrid from '../../../../components/TopicGrid.astro'
+import Callout from '../../../../components/Callout.astro'
 
-This track turns Module 09 into a deeper learning path.
+<LessonMeta level="Intermediate" duration="6 min" track="Performance" prerequisites="Node.js event loop, basic Express" />
 
-## What You Will Learn
+Performance is not a vibe. It is a measurement, a target, and a budget you defend in code review. This track teaches you to profile honestly, cache without creating stale truth, and scale without breaking invariants.
 
-- runtime performance and event-loop impact
-- profiling and hotspot detection
-- caching strategies and consistency tradeoffs
-- scaling, capacity, and reliability thinking
+<Objectives>
+- Read a flame graph and identify the real bottleneck
+- Measure event-loop latency and act on the numbers
+- Choose the right caching layer and invalidation strategy
+- Plan capacity with back-of-envelope math rather than hope
+</Objectives>
 
-## Recommended Order
+## What this track covers
 
-1. [Performance, Profiling, and the Event Loop](/learning/performance/performance-profiling-event-loop/)
-2. [Caching Strategies and Consistency](/learning/performance/caching-strategies-and-consistency/)
-3. [Scaling, Reliability, and Capacity](/learning/performance/scaling-reliability-and-capacity/)
-4. [Modern Performance Coverage](/learning/performance/modern-performance-coverage/)
-5. [Labs, Projects, Interview Questions, and Case Studies](/learning/performance/labs-projects-interview-case-studies/)
+<TopicGrid topics={[
+  { eyebrow: 'Measure', title: 'Profiling & the Event Loop', description: 'Flame graphs, CPU profiling, lag, and what slows Node.js.', href: '/learning/performance/performance-profiling-event-loop/' },
+  { eyebrow: 'Cache', title: 'Caching Strategies', description: 'Look-aside, write-through, TTLs, stampedes, and invalidation.', href: '/learning/performance/caching-strategies-and-consistency/' },
+  { eyebrow: 'Scale', title: 'Scaling, Reliability, Capacity', description: 'Cluster, workers, load shedding, bulkheads, and capacity math.', href: '/learning/performance/scaling-reliability-and-capacity/' },
+  { eyebrow: 'Ecosystem', title: 'Modern Performance Coverage', description: 'clinic, 0x, autocannon, k6, p99, and instrumentation.', href: '/learning/performance/modern-performance-coverage/' },
+  { eyebrow: 'Practice', title: 'Labs, Interviews, Case Studies', description: 'Profile, cache, scale, and reason about outages.', href: '/learning/performance/labs-projects-interview-case-studies/' },
+]} />
 
-## Goal
+<Callout type="tip" title="Measure before you tune">
+Every performance decision in this track starts with a number. &ldquo;It feels slow&rdquo; is not a finding. `p99=820ms at 1k rps` is.
+</Callout>
 
-By the end of this track, learners should be able to reason about backend performance systematically rather than guessing at optimizations.
+## Outcomes
 
-## Practical Depth
-
-This track now includes:
-
-- event-loop and caching labs
-- performance mini-projects
-- interview tradeoff questions
-- production case studies on latency and capacity
+By the end of the track, you can take a warm production service, measure p50/p95/p99 under realistic load, explain where each millisecond goes, and plan the smallest change that meets an SLO without making the system less reliable.

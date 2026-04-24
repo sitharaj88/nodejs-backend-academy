@@ -3,6 +3,26 @@ title: JavaScript Versions and ECMAScript History
 description: Full JavaScript and ECMAScript version timeline from ES1 through ECMAScript 2025, including notable features and naming guidance.
 ---
 
+import LessonMeta from '../../../../components/LessonMeta.astro'
+import Objectives from '../../../../components/Objectives.astro'
+import Callout from '../../../../components/Callout.astro'
+import Pitfall from '../../../../components/Pitfall.astro'
+import Compare from '../../../../components/Compare.astro'
+import Lab from '../../../../components/Lab.astro'
+import Checkpoint from '../../../../components/Checkpoint.astro'
+
+<LessonMeta level="All levels" duration="18 min" track="JavaScript" prerequisites="None, though the feature names make more sense after the other pages" />
+
+Knowing the ECMAScript timeline is not trivia. It is what tells you whether a syntax will run in the runtime you target, whether a Stack Overflow answer is current, and how to explain to a teammate why a codebase looks the way it does.
+
+<Objectives>
+- Distinguish JavaScript (the language) from ECMAScript (the spec)
+- Map any modern feature to the edition that shipped it
+- Pick a target edition for a new project with a clear justification
+- Recognise why ES4 does not exist as a published edition
+- Use edition names correctly in code review and interviews
+</Objectives>
+
 JavaScript is the language developers write. ECMAScript is the standard that defines the language.
 
 That is why people often say things like:
@@ -13,6 +33,10 @@ That is why people often say things like:
 - ECMAScript 2025
 
 They are closely related, but not identical terms.
+
+<Callout type="info" title="Language, spec, engine, runtime — four different things">
+**JavaScript** is the language developers write. **ECMAScript** is the spec that TC39 publishes. **V8** / **SpiderMonkey** / **JavaScriptCore** are the engines that implement the spec. **Node.js** / **Chrome** / **Deno** are the runtimes that bundle an engine with platform APIs. A feature lands in the language only when all four line up.
+</Callout>
 
 ## Current Latest Standard
 
@@ -42,6 +66,10 @@ As of April 19, 2026, the latest published ECMAScript standard is **ECMAScript 2
 
 - official name: reserved but not published
 - significance: often discussed historically, but there is no official ECMAScript 4 publication
+
+<Pitfall title="Saying 'ES4' as if it shipped">
+ES4 is a common source of confusion in interviews and write-ups. It was an ambitious proposal that was ultimately abandoned — the work that followed became ES5 and then the modern yearly cadence. **Fix:** when someone mentions ES4, clarify that the edition number was reserved but never published.
+</Pitfall>
 
 ### ES5
 
@@ -183,6 +211,19 @@ As of April 19, 2026, the latest published ECMAScript standard is **ECMAScript 2
 - After ES2015, yearly naming became normal.
 - In modern teaching, it is usually better to say `ES2020` or `ECMAScript 2020` than vague phrases like “new JavaScript.”
 
+<Compare badLabel="Vague" goodLabel="Precise">
+<Fragment slot="bad">
+"We should use modern JS syntax here."
+
+Which features? Which baseline? How does the reviewer verify it?
+</Fragment>
+<Fragment slot="good">
+"Our tsconfig `target` is `ES2022`. This PR uses `Object.hasOwn` (ES2022), which is fine. It does not use `toSorted` (ES2023), which would not transpile."
+
+Anyone can check the claim.
+</Fragment>
+</Compare>
+
 ## Which Versions Matter Most In Practice
 
 For working developers, the most important versions to recognize are usually:
@@ -192,6 +233,10 @@ For working developers, the most important versions to recognize are usually:
 - ES2017, because `async` or `await` became mainstream
 - ES2020 and later, because many modern codebases use optional chaining, nullish coalescing, top-level `await`, and newer helpers
 
+<Pitfall title="Assuming your runtime supports the latest edition">
+The spec publishing in June does not mean every runtime implements everything on day one. Node.js often lags a year or two behind for niche features, and older Node LTS lines may never get them. **Fix:** consult your runtime's release notes or [node.green](https://node.green) for actual support, not the TC39 finished-proposals list alone.
+</Pitfall>
+
 ## Teaching Advice
 
 Do not teach this page as a date-memorization exercise. Use it to explain why the language feels layered:
@@ -200,9 +245,48 @@ Do not teach this page as a date-memorization exercise. Use it to explain why th
 - modern JavaScript is mostly ES2015 and later
 - reading edition names helps learners understand documentation, interview questions, and code reviews
 
+## Lab
+
+<Lab title="Target an edition, then prove it" duration="40 min" difficulty="Easy" stack="Node.js and a small repo, or tsconfig.json">
+
+### Goal
+Pick an ECMAScript edition as your baseline and verify that your code actually respects it — no accidental future syntax.
+
+### Steps
+1. Check the Node.js LTS your project targets. Decide on an ECMAScript baseline that it fully supports (usually ES2022 or ES2023 for a recent LTS).
+2. In `tsconfig.json` or your ESLint config, set `target`/`parserOptions.ecmaVersion` to that edition.
+3. Deliberately add one feature from a *later* edition (for example, `toSorted` if you set ES2022). Observe the linter or compiler reject it.
+4. Replace the illegal feature with a compliant alternative (`[...arr].sort()`) and confirm the build passes.
+5. Write a short `RUNTIME_TARGETS.md` note for future contributors stating the edition, the reason, and the features that are off-limits.
+
+### Success criteria
+- Your build fails when someone uses a post-baseline feature, without relying on review
+- The replacement code produces identical behavior
+- The note in `RUNTIME_TARGETS.md` names the edition and the runtime
+
+</Lab>
+
+## Checkpoint
+
+<Checkpoint>
+1. In one sentence: what is the difference between JavaScript and ECMAScript?
+2. A coworker says they want to use "ES6 syntax". Which concrete features from that edition are they most likely to mean, and what is the modern name for it?
+3. Why is there no published ECMAScript 4?
+4. `Object.hasOwn`, `toSorted`, `Promise.any` — which editions shipped each?
+5. You are starting a new Node 20 service. Which ECMAScript edition would you target in your tsconfig, and why?
+</Checkpoint>
+
 ## What To Remember
 
 - JavaScript is the language; ECMAScript is the standard
 - ES4 does not officially exist as a published edition
 - ES2015 was the biggest modern turning point
 - the latest published standard is ECMAScript 2025, released in June 2025
+
+## Further reading
+
+- [Modern JavaScript Coverage](/learning/javascript/modern-javascript-coverage/) — the feature checklist this timeline supports
+- [Advanced JavaScript Concepts](/learning/javascript/advanced-javascript-concepts/) — where the recent helpers are practiced
+- [TC39 finished proposals](https://github.com/tc39/proposals/blob/main/finished-proposals.md) — the official list by year
+- [node.green](https://node.green) — per-runtime feature support matrix
+- [MDN: JavaScript versions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/JavaScript_technologies_overview)

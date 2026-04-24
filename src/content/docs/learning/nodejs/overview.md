@@ -4,22 +4,40 @@ slug: learning/nodejs/overview
 description: Overview page for the Node.js learning path, including reading order, concept scope, and what complete modern Node.js coverage means for backend learners.
 ---
 
+import LessonMeta from '../../../../components/LessonMeta.astro'
+import Objectives from '../../../../components/Objectives.astro'
+import Callout from '../../../../components/Callout.astro'
+import TopicGrid from '../../../../components/TopicGrid.astro'
+
+<LessonMeta level="Beginner to Advanced" duration="8 min" track="Node.js" prerequisites="JavaScript fundamentals, ideally TypeScript basics" />
+
 Node.js is the runtime layer that turns JavaScript and TypeScript knowledge into real backend systems.
 
 This path assumes learners already understand JavaScript and ideally TypeScript. The focus here is not syntax alone. It is how server-side applications actually run, communicate, scale, and fail.
 
-## What You Will Learn
+<Objectives>
+- Explain the Node.js runtime model and event loop well enough to debug a slow service
+- Choose between ESM and CommonJS with a runtime-level reason, not a style preference
+- Build an HTTP service with validation, auth, testing, and graceful shutdown
+- Reason about performance, scaling, and production readiness under real load
+- Track the Node.js release model and pick an LTS line with intent
+</Objectives>
 
-- the Node.js runtime model, event loop, and non-blocking I/O thinking
-- modules, packages, npm, semver, and modern ESM or CommonJS decisions
-- file system work, paths, buffers, environment variables, and process control
-- events, streams, backpressure, async iteration, and cancellation patterns
-- HTTP servers, APIs, middleware, Express, and request lifecycle design
-- a dedicated Express learning path covering routing, middleware, validation, auth, testing, and production delivery
-- validation, authentication, database boundaries, and service structure
-- testing, debugging, logging, and production error handling
-- performance, scaling, observability, deployment, and operational discipline
-- Node.js version history, modern platform features, and current runtime expectations
+## What this track covers
+
+<TopicGrid topics={[
+  { eyebrow: 'Runtime', title: 'Runtime Fundamentals', description: 'Event loop, blocking versus non-blocking work, and the core runtime model.', href: '/learning/nodejs/runtime-fundamentals/' },
+  { eyebrow: 'Packages', title: 'Modules, Package System, Tooling', description: 'ESM versus CommonJS, npm, semver, package.json discipline.', href: '/learning/nodejs/modules-package-system-tooling/' },
+  { eyebrow: 'Core APIs', title: 'File System, Path, Buffer, Process', description: 'Runtime boundaries every backend eventually touches.', href: '/learning/nodejs/filesystem-path-buffer-process/' },
+  { eyebrow: 'Async', title: 'Events, Streams, Async Patterns', description: 'EventEmitter, streams, pipelines, cancellation.', href: '/learning/nodejs/events-streams-async-patterns/' },
+  { eyebrow: 'HTTP', title: 'HTTP, APIs, and Express', description: 'From native http to a deeper Express track.', href: '/learning/nodejs/http-server-apis-express/' },
+  { eyebrow: 'Express', title: 'Express Learning Path', description: 'Routing, middleware, validation, auth, testing, delivery.', href: '/learning/nodejs/express/overview/' },
+  { eyebrow: 'Data', title: 'Databases, Validation, Auth', description: 'Boundary discipline between clients, data, and identity.', href: '/learning/nodejs/databases-validation-auth/' },
+  { eyebrow: 'Reliability', title: 'Testing, Debugging, Errors', description: 'Layered tests, structured logs, error categories.', href: '/learning/nodejs/testing-debugging-error-handling/' },
+  { eyebrow: 'Production', title: 'Performance, Scaling, Readiness', description: 'Event-loop protection, observability, shutdown.', href: '/learning/nodejs/performance-scaling-production-readiness/' },
+  { eyebrow: 'History', title: 'Versions and Ecosystem', description: 'Current versus LTS, milestone release lines.', href: '/learning/nodejs/nodejs-versions-ecosystem-history/' },
+  { eyebrow: 'Coverage', title: 'Modern Node.js Coverage', description: 'What this path covers and what it intentionally does not.', href: '/learning/nodejs/modern-nodejs-coverage/' },
+]} />
 
 ## Recommended Order
 
@@ -43,6 +61,10 @@ This path assumes learners already understand JavaScript and ideally TypeScript.
 18. [Node.js Versions and Ecosystem History](/learning/nodejs/nodejs-versions-ecosystem-history/)
 19. [Modern Node.js Coverage](/learning/nodejs/modern-nodejs-coverage/)
 
+<Callout type="tip" title="How to study this path">
+Pick one small service — for example a `POST /courses` endpoint. As you move through the pages, build it once with the native `http` module, then with Express, and finally with a layered architecture. Compare what each version catches, what each one misses, and what each one makes easy to change.
+</Callout>
+
 ## Coverage Promise
 
 This path is designed to cover the major Node.js concepts serious backend learners actually need:
@@ -64,6 +86,6 @@ The goal is not to create framework-only knowledge. The goal is to build a runti
 - test failure paths as seriously as success paths
 - keep asking which parts are JavaScript concepts and which parts are specifically Node.js runtime concepts
 
-## Goal
+## Outcomes
 
-By the end of this path, learners should be able to build and reason about modern Node.js backends with a clear understanding of how the runtime behaves in development and production.
+By the end of this path, learners can build and reason about modern Node.js backends with a clear understanding of how the runtime behaves in development and production — which parts are language, which parts are platform, and which parts only reveal themselves under real traffic.

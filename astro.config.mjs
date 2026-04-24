@@ -15,10 +15,11 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Node.js Backend Academy',
+      description:
+        'A production-grade Node.js backend engineering academy with guided learning paths, labs, diagrams, projects, and capstones.',
       logo: {
         src: './src/assets/node-academy-mark.svg',
       },
-      disable404Route: true,
       customCss: [
         '@fontsource-variable/manrope/index.css',
         '@fontsource/source-serif-4/400.css',
@@ -30,6 +31,52 @@ export default defineConfig({
         minHeadingLevel: 2,
         maxHeadingLevel: 3,
       },
+      editLink: {
+        baseUrl:
+          (owner && repoName)
+            ? `https://github.com/${owner}/${repoName}/edit/main/`
+            : 'https://github.com/sitharaj88/nodejs-backend-academy/edit/main/',
+      },
+      lastUpdated: true,
+      pagination: true,
+      head: [
+        {
+          tag: 'meta',
+          attrs: { property: 'og:type', content: 'website' },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image',
+            content: `${site}${isProjectPages ? `/${repoName}` : ''}/og-default.svg`,
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: { name: 'twitter:card', content: 'summary_large_image' },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'twitter:image',
+            content: `${site}${isProjectPages ? `/${repoName}` : ''}/og-default.svg`,
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: { name: 'theme-color', content: '#2f8f46' },
+        },
+      ],
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href:
+            (owner && repoName)
+              ? `https://github.com/${owner}/${repoName}`
+              : 'https://github.com/sitharaj88/nodejs-backend-academy',
+        },
+      ],
       sidebar: [
         {
           label: 'Start Here',
@@ -595,6 +642,15 @@ export default defineConfig({
             {
               label: 'Tools & Technologies',
               slug: 'projects/tools-technologies',
+            },
+          ],
+        },
+        {
+          label: 'Reference',
+          items: [
+            {
+              label: 'Glossary',
+              slug: 'reference/glossary',
             },
           ],
         },

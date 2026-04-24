@@ -3,7 +3,25 @@ title: Prototypes, Classes, and OOP
 description: Learn prototype-based inheritance, classes, constructors, methods, inheritance, encapsulation ideas, and object-oriented patterns in JavaScript.
 ---
 
-JavaScript is prototype-based. Classes exist, but under the hood they build on prototypes.
+import LessonMeta from '../../../../components/LessonMeta.astro'
+import Objectives from '../../../../components/Objectives.astro'
+import Callout from '../../../../components/Callout.astro'
+import Pitfall from '../../../../components/Pitfall.astro'
+import Compare from '../../../../components/Compare.astro'
+import Lab from '../../../../components/Lab.astro'
+import Checkpoint from '../../../../components/Checkpoint.astro'
+
+<LessonMeta level="Intermediate" duration="26 min" track="JavaScript" prerequisites="Functions, Scope, Closures, and This; Arrays, Objects, and Destructuring" />
+
+JavaScript's object model is prototype-based, and classes are syntax built on top of it. Understanding that one layer down explains why `instanceof` works the way it does, why methods inherit, and when a class is the right tool versus a factory function.
+
+<Objectives>
+- Explain prototype lookup and predict which method runs for a given object
+- Read a class definition and name every member — constructor, instance, static, private
+- Use `super` correctly in a subclass constructor
+- Pick between class inheritance and composition with a reason, not a reflex
+- Use private fields (`#name`) to protect true invariants
+</Objectives>
 
 ## Objects and Prototypes
 
@@ -19,6 +37,10 @@ console.log(items.push) // comes from Array.prototype
 ```
 
 This explains why arrays have methods even when you did not define them manually.
+
+<Callout type="info" title="The chain ends at `null`">
+Every prototype chain terminates at `Object.prototype`, whose prototype is `null`. If the engine walks the whole chain without finding a property, you get `undefined`. There is no global method lookup — only the chain.
+</Callout>
 
 ## Constructor Functions
 
@@ -96,6 +118,18 @@ Inheritance can be useful, but students should also learn composition. Not every
 
 It must be called before using `this` in a subclass constructor.
 
+<Pitfall title="Using `this` before `super()` in a subclass constructor">
+```js
+class Trainer extends User {
+  constructor(name, topic) {
+    this.topic = topic // ReferenceError
+    super(name)
+  }
+}
+```
+`this` is uninitialized until `super()` runs. **Fix:** always call `super()` first, then set subclass-specific fields.
+</Pitfall>
+
 ## Static Members
 
 Static members belong to the class itself, not the instance.
@@ -133,6 +167,10 @@ class Wallet {
   }
 }
 ```
+
+<Callout type="tip" title="`#field` is a real guarantee">
+Private fields prefixed with `#` are not just a convention — they are a hard syntax-level error if accessed from outside the class. No `Object.keys`, no `Reflect`, no prototype walk reaches them.
+</Callout>
 
 ### Public class fields
 
@@ -181,6 +219,28 @@ function withTimestamps(entity) {
 }
 ```
 
+<Compare badLabel="Deep inheritance tree" goodLabel="Composition with small helpers">
+<Fragment slot="bad">
+```js
+class Entity { /* id, createdAt */ }
+class Auditable extends Entity { /* updatedBy */ }
+class SoftDeletable extends Auditable { /* deletedAt */ }
+class User extends SoftDeletable { /* email */ }
+```
+Adding one concern means creating or resequencing a class.
+</Fragment>
+<Fragment slot="good">
+```js
+const user = withTimestamps(
+  withSoftDelete(
+    withAudit({ email: 'ada@example.com' })
+  )
+)
+```
+Each concern is one small function; mix as needed.
+</Fragment>
+</Compare>
+
 ### Teaching point
 
 Prefer composition when it keeps code simpler and avoids forced hierarchies.
@@ -199,6 +259,15 @@ Plain objects and functions are often enough when:
 - behavior is limited
 - composition is easier
 
+<Pitfall title="Subclassing `Error` and losing the name">
+```js
+class ValidationError extends Error {}
+throw new ValidationError('bad input')
+// err.name is still 'Error' in some environments
+```
+Without setting `this.name`, stack traces and type checks behave oddly. **Fix:** set `this.name = 'ValidationError'` inside the constructor after calling `super(message)`.
+</Pitfall>
+
 ## Common Mistakes
 
 - using classes everywhere out of habit
@@ -213,9 +282,48 @@ Plain objects and functions are often enough when:
 - add a private field for internal state
 - inspect inherited methods on arrays and objects
 
+## Lab
+
+<Lab title="Wallet with real invariants" duration="45 min" difficulty="Medium" stack="Node.js REPL or any scratch file">
+
+### Goal
+Build a `Wallet` class that cannot have its balance corrupted from outside, add an audited subclass, and then rewrite it as a factory function with closures to compare.
+
+### Steps
+1. Implement `Wallet` with a `#balance` field, `deposit(amount)`, `withdraw(amount)`, and `getBalance()`. Reject negative amounts and overdrafts by throwing.
+2. Add `AuditedWallet extends Wallet` with a `#log` private array and a `history()` method that returns a copy. Use `super()` correctly.
+3. Attempt to read `#balance` from outside the class and observe the syntax error.
+4. Rewrite the same API as a factory function using closures: `createWallet()` returns an object with the same methods.
+5. Compare: which version prevents tampering more strongly? Which is easier to test?
+
+### Success criteria
+- External code cannot change `#balance` or `#log` directly
+- Overdrafts throw with a descriptive message
+- `history()` returns a copy, not a live reference
+- Both the class and the closure version pass the same 6 unit tests
+
+</Lab>
+
+## Checkpoint
+
+<Checkpoint>
+1. Given `const arr = [1, 2]`, trace how `arr.push(3)` is resolved step by step through the prototype chain.
+2. Why must `super()` be called before `this` in a subclass constructor?
+3. Name three things `#balance` protects against that a convention like `_balance` does not.
+4. When would you pick a factory function with closures over a class for the same behavior?
+5. `class A { m() {} }; class B extends A { m() { super.m() } }`. What object is `super.m()` called on?
+</Checkpoint>
+
 ## What To Remember
 
 - JavaScript is prototype-based
 - classes are syntax built on prototype behavior
 - inheritance is useful, but composition is often simpler
 - choose object-oriented patterns only when they improve clarity
+
+## Further reading
+
+- [Modules, Errors, and Code Patterns](/learning/javascript/modules-errors-patterns/) — custom error classes in practice
+- [Advanced JavaScript Concepts](/learning/javascript/advanced-javascript-concepts/) — proxies, reflection, and meta-programming
+- [Functions, Scope, Closures, and This](/learning/javascript/functions-scope-closures-this/) — the scope foundation underneath classes
+- [MDN: Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)

@@ -1298,3 +1298,117 @@ button[data-open-modal] {
     break-inside: avoid;
   }
 }
+
+/* ===== Accessibility ==================================================== */
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .academy-actions a:hover,
+  .academy-start > a:hover,
+  .phase-link-card:hover,
+  .academy-curriculum-card:hover,
+  .topic-grid > a:hover {
+    transform: none;
+  }
+  .phase-link-card:hover::after {
+    transform: none;
+  }
+}
+
+/* Visible, high-contrast focus rings everywhere */
+:focus-visible {
+  outline: 2px solid var(--sl-color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.academy-actions a:focus-visible,
+.academy-start > a:focus-visible,
+.phase-link-card:focus-visible,
+.academy-curriculum-card:focus-visible,
+.topic-grid > a:focus-visible {
+  outline-offset: 4px;
+}
+
+.hero .sl-link-button:focus-visible {
+  outline-offset: 4px;
+  outline-width: 3px;
+}
+
+/* Screen-reader-only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High-contrast mode: preserve borders */
+@media (prefers-contrast: more) {
+  .academy-panel,
+  .phase-link-card,
+  .academy-outcomes > div,
+  .academy-start > a,
+  .academy-curriculum-card,
+  .callout,
+  .pitfall,
+  .key-concept,
+  .lab,
+  .checkpoint,
+  .compare > div,
+  .topic-grid > a,
+  .stat-strip > div {
+    border-width: 2px;
+  }
+  .sl-markdown-content :not(pre) > code {
+    border-width: 2px;
+  }
+}
+
+/* Callouts: non-color signal (icon before header label) is already present
+   via `.callout > header::before`. Ensure the colored border is always
+   meaningful by making it thicker in high-contrast. */
+@media (prefers-contrast: more) {
+  .callout {
+    border-left-width: 5px;
+  }
+}
+
+/* Diagram SVGs: ensure text remains legible on dark mode backgrounds */
+:root[data-theme='dark'] .diagram svg text {
+  fill: #edf2f7;
+}
+:root[data-theme='dark'] .diagram svg text[fill='#596579'] {
+  fill: #a7b2c2;
+}
+
+/* Skip-to-content link support (Starlight ships one; style it consistently) */
+a[href='#main-frame']:focus-visible,
+a[href='#_top']:focus-visible {
+  outline: 3px solid var(--sl-color-accent);
+  outline-offset: 4px;
+}
+
+/* Ensure table captions, if any, are readable */
+.sl-markdown-content table caption {
+  padding: 0.5rem;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.86rem;
+  color: var(--academy-muted);
+  text-align: left;
+}

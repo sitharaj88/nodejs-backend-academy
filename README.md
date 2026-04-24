@@ -1,155 +1,135 @@
 # Node.js Backend Academy
 
-Professional Node.js backend training academy for learners who want to move from JavaScript fundamentals to production-ready backend engineering.
+A production-grade backend engineering academy for Node.js — structured like a real training program with guided lessons, hands-on labs, inline diagrams, production case studies, and capstone projects.
 
-## Website
+**Live site:** [sitharaj88.github.io/nodejs-backend-academy](https://sitharaj88.github.io/nodejs-backend-academy/)
 
-Live site: [Node.js Backend Academy](https://sitharaj88.github.io/nodejs-backend-academy/)
+## What this is
 
-## Training purpose
+Not a tutorial collection. Not a cheat sheet. A layered curriculum that takes a learner from JavaScript fundamentals to operating production Node.js services — with the same shape on every page: objectives, mental model, runnable code, good-vs-bad comparisons, pitfalls, a lab with success criteria, and a checkpoint.
 
-This academy is designed as a complete backend learning platform, not just a short syllabus or brochure.
+Built for:
 
-It is intended for:
+- **Career switchers** moving into backend engineering
+- **Frontend engineers** going full-stack
+- **Teams** running internal training or onboarding
+- **Bootcamps &amp; classrooms** delivering a structured program
+- **Interview preparation** for backend and system-design rounds
 
-- students learning backend development seriously
-- working developers moving from frontend or general JavaScript into backend engineering
-- internal team training
-- classroom delivery and instructor-led programs
-- interview preparation and backend fundamentals revision
+## At a glance
 
-## Training scope
+- **13 modules** across 4 phases (27 planned weeks)
+- **120+ concept pages** with runnable code
+- **~40+ labs** with explicit pass/fail criteria
+- **4 capstone tracks** with milestones and review rubrics
+- **9 inline-SVG diagrams** for visual learning
+- **Dark mode** + mobile-responsive
+- **Full-text search** (Pagefind)
 
-The training covers the full backend learning journey in a structured order:
+## Curriculum
 
-- JavaScript foundations
-- TypeScript for backend engineering
-- Node.js runtime fundamentals
-- Express.js and REST API development
-- NPM, tooling, and project setup
-- databases and data modeling
-- authentication, authorization, and security
-- architecture and clean design
-- testing and debugging
-- performance and caching
-- real-time systems and advanced APIs
-- DevOps and deployment
-- system design and microservices fundamentals
+**Phase 1 — Foundation & Runtime (weeks 1–6)** JavaScript, TypeScript, Node.js runtime, tooling, project setup.
 
-## What makes this training different
+**Phase 2 — APIs, Data & Security (weeks 7–14)** Express, REST conventions, Postgres + MongoDB modeling, auth (sessions, JWT, OAuth, RBAC/ABAC), API hardening.
 
-This repository is organized as a real learning platform with:
+**Phase 3 — Architecture, Quality & Scale (weeks 15–22)** Layered + clean architecture, modular monolith, testing pyramid, profiling, caching strategies, scaling &amp; reliability, real-time APIs (WebSocket / SSE / GraphQL / gRPC).
 
-- phase-by-phase roadmap pages
-- module-based training structure
-- deep multi-page learning content
-- labs and hands-on exercises
-- mini-project ideas
-- interview questions
-- production case studies
-- capstone-oriented learning flow
+**Phase 4 — Delivery & Career (weeks 23–27)** Docker, CI/CD, observability &amp; SLOs, runbooks, system design for microservices &amp; messaging, capstone reviews, interview prep.
 
-The goal is to help learners understand both:
+## Learning tracks
 
-- how to write backend code
-- how backend systems behave in real production environments
+| Track | Pages | Focus |
+| --- | --- | --- |
+| JavaScript | 11 | Language mechanics, async, OOP, modern APIs |
+| TypeScript | 12 | Types, generics, narrowing, runtime validation |
+| Node.js | 11 | Runtime, streams, process, HTTP |
+| Express | 9 | Routing, middleware, validation, auth, production |
+| Tooling | 6 | Package management, scripts, quality gates |
+| Databases | 6 | SQL + NoSQL modeling, queries, transactions |
+| Security | 6 | AuthN, AuthZ, API hardening, secrets |
+| Architecture | 6 | Layered, clean, modular monolith patterns |
+| Testing | 6 | Layers, mocks, contracts, debugging |
+| Performance | 6 | Profiling, caching, scaling, capacity |
+| Real-Time | 6 | WebSockets, SSE, queues, GraphQL, gRPC |
+| DevOps | 6 | Docker, CI/CD, observability, runbooks |
+| System Design | 6 | Fundamentals, microservices, messaging, resilience |
 
-## Learning structure
+Each concept page includes: learning objectives, a mental model, runnable TypeScript/Node.js code, good-vs-bad comparisons, 2–3 named pitfalls with fixes, a lab with explicit success criteria, and a 5-question checkpoint.
 
-The academy is divided into major content layers:
+## Capstone projects
 
-- `Start Here`
-  orientation, program overview, and training format
-- `Phase Roadmap`
-  phase-by-phase progression across the learning journey
-- `Module Library`
-  module summaries aligned with the training structure
-- `Learning`
-  deep concept-by-concept study material
-- `Project Studio`
-  capstones, tools, and supporting references
+Four ambitious tracks — each with scope, architecture prompts, 5-week milestones, and a six-axis review rubric:
 
-## Core learning tracks
+1. **E-Commerce API** — catalog, carts, orders, payments, RBAC admin
+2. **Social Media Backend** — graph, feed, caching, real-time counts
+3. **SaaS Product Backend** — multi-tenant, billing, feature flags, clean architecture
+4. **Real-Time Support System** — tickets, live chat, SLA timers, observability
 
-The current academy includes dedicated learning tracks for:
+## Tech stack (opinionated defaults)
 
-- JavaScript
-- TypeScript
-- Node.js
-- Express.js
-- Tooling and setup
-- Databases
-- Security
-- Architecture
-- Testing
-- Performance
-- Real-time systems
-- DevOps
-- System design
+Runtime: **Node 20 LTS**. Language: **TypeScript strict**. Package manager: **pnpm**. Framework: **Express** (with Fastify/Hono noted). Data: **Postgres**, **MongoDB**, **Redis**. Testing: **Vitest** + **Supertest** + **Testcontainers** + **Pact**. Auth: **argon2id**, **jose**, **Passport**/**better-auth**. Observability: **pino**, **OpenTelemetry**, **Prometheus**. Delivery: **Docker** (distroless, non-root), **GitHub Actions**, **Fly/Render/Railway**.
 
-Each major track is designed to include:
+## Repository layout
 
-- concept explanations
-- examples
-- labs
-- mini-projects
-- interview preparation
-- production case studies
-
-## Training outcomes
-
-By the end of this academy, learners should be able to:
-
-- write clean JavaScript and TypeScript for backend systems
-- understand how Node.js works at runtime
-- build and structure Express APIs properly
-- model data and choose reasonable persistence approaches
-- implement authentication and authorization safely
-- test and debug backend code with confidence
-- reason about performance, scaling, and reliability
-- understand deployment, observability, and production discipline
-- discuss backend architecture and system design with clarity
-
-## Intended progression
-
-Recommended progression:
-
-1. JavaScript
-2. TypeScript
-3. Node.js
-4. Express
-5. backend modules such as databases, security, architecture, testing, performance, real-time APIs, DevOps, and system design
-
-This ordering helps learners build strong language fundamentals before platform, framework, and distributed-system concerns.
-
-## Repository focus
-
-The purpose of this repository is to host and grow the training content for the academy.
-
-It should be used as:
-
-- a learning website
-- a teaching reference
-- a backend training curriculum companion
-- a structured academy-style knowledge base
-
-## Local preview
-
-If you want to run the academy site locally:
-
-```bash
-npm install
-npm run dev
+```
+.
+├── src/
+│   ├── assets/              # logo, hero SVG
+│   ├── components/          # Astro MDX components (Lab, Callout, Pitfall, ...)
+│   ├── content/docs/        # all lesson content (MDX/Markdown)
+│   │   ├── start-here/
+│   │   ├── roadmap/         # 4 phase pages
+│   │   ├── modules/         # 13 module summaries
+│   │   ├── learning/        # 13 deep tracks
+│   │   ├── projects/        # capstones + tools reference
+│   │   └── reference/       # glossary
+│   └── styles/custom.css    # design system (~960 lines)
+├── public/                  # static assets (OG image, brochure PDF)
+├── astro.config.mjs
+└── package.json
 ```
 
-## Build
+## Contributing content
 
-To generate the production site locally:
+The project is built with [Astro](https://astro.build) + [Starlight](https://starlight.astro.build). Every concept page uses a shared component library:
+
+- `<LessonMeta>` — level, duration, track, prerequisites at the top
+- `<Objectives>` — what the reader will be able to do
+- `<KeyConcept>` — labelled mental-model card
+- `<Callout type="info|success|warn|danger|tip">` — contextual notes
+- `<Pitfall>` — named anti-pattern with a `Fix:` line
+- `<Compare>` — side-by-side bad-vs-good code
+- `<Lab>` — hands-on exercise with success criteria
+- `<Checkpoint>` — 5-question self-assessment
+- `<Diagram>` — inline-SVG wrapper for architecture sketches
+- `<TopicGrid>` / `<Stats>` — navigation/overview blocks
+
+Follow an existing page (e.g. [`src/content/docs/learning/testing/unit-integration-api-testing.md`](src/content/docs/learning/testing/unit-integration-api-testing.md)) as the shape for new pages.
+
+## Running locally
+
+Prerequisites: Node.js 20+, pnpm (or npm).
 
 ```bash
-npm run build
+pnpm install        # or: npm install
+pnpm dev            # starts Astro dev server on http://localhost:4321
+```
+
+### Production build
+
+```bash
+pnpm build          # emits dist/
+pnpm preview        # serves the build locally
 ```
 
 ## Deployment
 
-The site is configured for GitHub Pages deployment from the `main` branch using GitHub Actions.
+Configured for **GitHub Pages** via GitHub Actions from the `main` branch. The build automatically handles base path (`/<repo>/`) for project pages vs root for user/org sites.
+
+## License
+
+Content copyright © the Node.js Backend Academy contributors. See repository for license terms.
+
+---
+
+Feedback, corrections, and new-content contributions welcome — open a pull request or issue. Click "Edit this page" on any lesson to jump straight to the source file on GitHub.

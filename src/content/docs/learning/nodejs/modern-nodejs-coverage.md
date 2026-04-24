@@ -4,11 +4,25 @@ slug: learning/nodejs/modern-nodejs-coverage
 description: Coverage map for the Node.js learning path, including modern runtime capabilities, backend patterns, version-awareness, and what is intentionally out of scope.
 ---
 
+import LessonMeta from '../../../../components/LessonMeta.astro'
+import Objectives from '../../../../components/Objectives.astro'
+import Callout from '../../../../components/Callout.astro'
+import TopicGrid from '../../../../components/TopicGrid.astro'
+import Checkpoint from '../../../../components/Checkpoint.astro'
+
+<LessonMeta level="Beginner" duration="6 min" track="Node.js" prerequisites="Skim of the Node.js overview" />
+
 This page answers the completeness question directly:
 
 does this learning path cover modern Node.js properly?
 
 For serious backend fundamentals, yes.
+
+<Objectives>
+- Name the dimensions this path considers "modern Node.js"
+- Map each dimension to a specific page you can jump to
+- Identify what the path intentionally leaves to adjacent tracks
+</Objectives>
 
 ## What Counts As Modern Node.js Here
 
@@ -23,6 +37,18 @@ For this site, modern Node.js means:
 - version-awareness grounded in Current and LTS support models
 
 ## Coverage Map
+
+<TopicGrid topics={[
+  { eyebrow: 'Runtime', title: 'Runtime Fundamentals', description: 'Event loop, blocking versus non-blocking work, CPU awareness.', href: '/learning/nodejs/runtime-fundamentals/' },
+  { eyebrow: 'Packages', title: 'Modules and Tooling', description: 'CommonJS, ESM, npm, semver, scripts, dependency strategy.', href: '/learning/nodejs/modules-package-system-tooling/' },
+  { eyebrow: 'Core APIs', title: 'FS, Path, Buffer, Process', description: 'Runtime boundaries and graceful shutdown.', href: '/learning/nodejs/filesystem-path-buffer-process/' },
+  { eyebrow: 'Async', title: 'Events, Streams, Async Patterns', description: 'EventEmitter, streams, pipelines, cancellation.', href: '/learning/nodejs/events-streams-async-patterns/' },
+  { eyebrow: 'HTTP', title: 'HTTP, APIs, and Express', description: 'Native http, request lifecycle, Express entry point.', href: '/learning/nodejs/http-server-apis-express/' },
+  { eyebrow: 'Data', title: 'Databases, Validation, Auth', description: 'DTOs, validation, authentication, authorization.', href: '/learning/nodejs/databases-validation-auth/' },
+  { eyebrow: 'Reliability', title: 'Testing, Debugging, Errors', description: 'Built-in test runner, structured logs, error categories.', href: '/learning/nodejs/testing-debugging-error-handling/' },
+  { eyebrow: 'Production', title: 'Performance and Readiness', description: 'Event-loop protection, observability, graceful shutdown.', href: '/learning/nodejs/performance-scaling-production-readiness/' },
+  { eyebrow: 'History', title: 'Versions and Ecosystem', description: 'Current versus LTS, milestone release lines.', href: '/learning/nodejs/nodejs-versions-ecosystem-history/' },
+]} />
 
 ### Runtime model
 
@@ -71,6 +97,10 @@ For this site, modern Node.js means:
 
 ## What This Path Intentionally Does Not Overclaim
 
+<Callout type="info" title="Scope honesty">
+This track covers the runtime-level and application-level fundamentals of modern Node.js. It does not pretend to be a complete cloud-architecture course, a deep distributed-systems textbook, or a framework shoot-out.
+</Callout>
+
 This path does not pretend to fully cover every adjacent ecosystem topic in one section.
 
 It intentionally does not treat these as fully completed here:
@@ -83,12 +113,26 @@ It intentionally does not treat these as fully completed here:
 
 ## Teaching Standard
 
+<Callout type="tip" title="Every page has hands-on parts">
+Each concept page ships with objectives, compare panels, pitfalls, a lab, and a checkpoint. Students should finish able to build, measure, and reason — not just define.
+</Callout>
+
 If this Node.js path is used for training delivery, the expectation should be:
 
 - every topic includes runnable examples
 - learners understand the runtime reason behind the code, not only the syntax
 - async behavior, failure handling, and shutdown behavior are taught explicitly
 - LTS and production thinking are treated as part of backend engineering, not optional polish
+
+## Checkpoint
+
+<Checkpoint>
+1. Which page covers event-loop phases and CPU-bound pitfalls?
+2. Where would a learner look for the difference between unit, integration, and API tests in this track?
+3. Which page explains why an unbounded `Map` is a production risk?
+4. Where is the `AbortController` pattern introduced relative to streams?
+5. If a new hire asks "can I deploy on Node 25?", which page should you point them at first?
+</Checkpoint>
 
 ## Bottom Line
 

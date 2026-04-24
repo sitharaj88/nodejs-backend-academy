@@ -3,7 +3,25 @@ title: Functions, Scope, Closures, and This
 description: Learn how JavaScript functions work, how scope is resolved, what closures capture, and how the this keyword behaves.
 ---
 
-Functions are one of the most important parts of JavaScript. They shape logic, abstraction, reuse, and behavior.
+import LessonMeta from '../../../../components/LessonMeta.astro'
+import Objectives from '../../../../components/Objectives.astro'
+import Callout from '../../../../components/Callout.astro'
+import Pitfall from '../../../../components/Pitfall.astro'
+import Compare from '../../../../components/Compare.astro'
+import Lab from '../../../../components/Lab.astro'
+import Checkpoint from '../../../../components/Checkpoint.astro'
+
+<LessonMeta level="Beginner" duration="30 min" track="JavaScript" prerequisites="Syntax, Types, and Variables; Operators, Conditions, and Loops" />
+
+Functions are the unit of composition in JavaScript. Get scope and closures right and classes feel easy. Get `this` right and half the "JavaScript is weird" complaints disappear. This page builds that foundation with small, reusable examples.
+
+<Objectives>
+- Declare functions in all three forms and explain when each fits
+- Trace variable lookup through lexical scope without guessing
+- Use closures on purpose to build counters, factories, and memoizers
+- Predict what `this` refers to given the call site, not the definition site
+- Refactor nested logic into small pure functions
+</Objectives>
 
 ## Function Declarations and Expressions
 
@@ -30,6 +48,10 @@ const greet = (name) => `Hello, ${name}`
 ```
 
 Each form is useful, but students should understand the behavioral differences instead of treating them as cosmetic.
+
+<Callout type="info" title="Three forms, three behaviors">
+Function declarations are fully hoisted — you can call them before the definition line. Function expressions and arrow functions are only hoisted as variables, so calling them early throws a `ReferenceError`. Only arrow functions refuse to bind their own `this`.
+</Callout>
 
 ## Parameters and Arguments
 
@@ -153,6 +175,33 @@ Closures appear in:
 - caching helpers
 - stateful utilities
 
+<Compare badLabel="Global mutable state" goodLabel="Closed-over state">
+<Fragment slot="bad">
+```js
+let counter = 0
+function nextId() {
+  counter += 1
+  return counter
+}
+// Anyone can reset `counter` from anywhere.
+```
+</Fragment>
+<Fragment slot="good">
+```js
+function createIdGenerator() {
+  let counter = 0
+  return () => {
+    counter += 1
+    return counter
+  }
+}
+const nextId = createIdGenerator()
+// `counter` is only reachable through the returned function.
+```
+Private by construction; testable without resetting globals.
+</Fragment>
+</Compare>
+
 ## Higher-Order Functions
 
 A higher-order function:
@@ -196,6 +245,14 @@ function sayHi() {
 
 By contrast, function expressions assigned to `const` do not work before initialization.
 
+<Pitfall title="Calling a `const` function before it is defined">
+```js
+greet() // ReferenceError: Cannot access 'greet' before initialization
+const greet = () => 'hi'
+```
+The `const` binding is hoisted into the temporal dead zone, but the value is only assigned at the definition line. **Fix:** define before use, or switch to a `function` declaration when top-down ordering is awkward.
+</Pitfall>
+
 ## `this`
 
 `this` refers to context, but that context depends on how the function is called.
@@ -228,6 +285,14 @@ const trainer = {
 ```
 
 The arrow example is often surprising because it does not behave like an object method.
+
+<Pitfall title="Lost `this` when you pass a method around">
+```js
+const user = { name: 'Anu', show() { console.log(this.name) } }
+setTimeout(user.show, 100) // logs undefined
+```
+The function reference is extracted, so the call site no longer has `user` on the left. **Fix:** bind explicitly — `setTimeout(user.show.bind(user), 100)` — or wrap in an arrow: `setTimeout(() => user.show(), 100)`.
+</Pitfall>
 
 ## Method Versus Standalone Function
 
@@ -305,9 +370,48 @@ Break large logic into smaller functions instead of one giant function body.
 - compare normal methods and arrow methods
 - refactor nested logic into small pure functions
 
+## Lab
+
+<Lab title="Closures in practice" duration="40 min" difficulty="Medium" stack="Node.js REPL or any scratch file">
+
+### Goal
+Use closures deliberately to build three small utilities, and confirm you can reason about what each closure captures.
+
+### Steps
+1. Build `once(fn)` — a wrapper that calls `fn` the first time and returns the cached result forever after. Test with a function that logs a side effect.
+2. Build `memoize(fn)` for pure, single-argument functions. Test on a slow Fibonacci implementation; measure the speedup.
+3. Build `rateLimited(fn, intervalMs)` — returns a wrapper that ignores calls within `intervalMs` of the last successful call.
+4. For each utility, list the variables the returned function closes over and whether any of them could leak memory over time.
+5. Write one bug where `this` is lost inside one of your wrappers, then fix it with either a `function` expression or explicit arguments.
+
+### Success criteria
+- `once(fn)` produces identical results on the 1st and 100th call
+- `memoize` turns your slow Fibonacci from seconds into milliseconds on repeat calls
+- `rateLimited` drops calls inside the interval without error
+- You can explain which variable each closure captures and why
+
+</Lab>
+
+## Checkpoint
+
+<Checkpoint>
+1. Predict: `console.log(a); const a = 1`. Why does it throw instead of printing `undefined`?
+2. What does a closure actually capture — the value at creation time, or the variable binding?
+3. You write `const fn = user.show` and call `fn()`. Inside, `this.name` is `undefined`. Explain why and list two fixes.
+4. In `createSequence` above, two calls produce `'INV-1'` and `'INV-2'`. Where does `current` live between those calls?
+5. Why do arrow functions not have their own `this`, and when is that exactly the behavior you want?
+</Checkpoint>
+
 ## What To Remember
 
 - functions are values in JavaScript
 - scope depends on where code is written
 - closures keep access to outer variables
 - `this` depends on call style, not only on function location
+
+## Further reading
+
+- [Prototypes, Classes, and OOP](/learning/javascript/prototypes-classes-oop/) — where `this` rules become class rules
+- [Asynchronous JavaScript](/learning/javascript/asynchronous-javascript/) — callbacks and closures across async boundaries
+- [Modules, Errors, and Code Patterns](/learning/javascript/modules-errors-patterns/) — factory functions as module design
+- [MDN: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)

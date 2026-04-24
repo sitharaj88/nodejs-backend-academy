@@ -4,6 +4,16 @@ slug: learning/typescript/typescript-versions-history
 description: TypeScript version history from the early 0.x releases through TypeScript 6.0, including the major features learners should associate with each era.
 ---
 
+import LessonMeta from '../../../../components/LessonMeta.astro'
+import Objectives from '../../../../components/Objectives.astro'
+import Callout from '../../../../components/Callout.astro'
+import Pitfall from '../../../../components/Pitfall.astro'
+import Compare from '../../../../components/Compare.astro'
+import Lab from '../../../../components/Lab.astro'
+import Checkpoint from '../../../../components/Checkpoint.astro'
+
+<LessonMeta level="Beginner" duration="14 min" track="TypeScript" prerequisites="A working familiarity with TypeScript syntax" />
+
 TypeScript has changed in layers. Old code, mid-era code, and modern code can feel very different even when they all compile today.
 
 This page gives learners a practical timeline so they can understand:
@@ -12,11 +22,23 @@ This page gives learners a practical timeline so they can understand:
 - which versions introduced the biggest ideas
 - why older blog posts and codebases may look different
 
+<Objectives>
+- Name the current stable TypeScript release and the one preceding it
+- Associate a language feature with the version that introduced it
+- Explain why older codebases use patterns the modern type system makes cleaner
+- Read release notes with enough context to assess migration impact
+- Decide whether to bump a project's TypeScript version for a specific feature
+</Objectives>
+
 ## Current Latest Stable Version
 
 As of April 19, 2026, the latest stable TypeScript release is **TypeScript 6.0**, announced on **March 23, 2026**.
 
 TypeScript 7 is part of the next-generation native compiler direction, but it should be treated as the next major step rather than the current stable baseline for this training material.
+
+<Callout type="info" title="Upgrade for features, not for version numbers">
+A TypeScript upgrade should be driven by a concrete feature you need or a strictness option you want to enable. Upgrading for its own sake burns CI time without shipping value.
+</Callout>
 
 ## Why Version History Matters
 
@@ -123,6 +145,23 @@ Major milestones:
   type-only imports and exports
 
 Version 3.7 is especially important because it changed how many codebases write null-safe logic.
+
+<Compare badLabel="Pre-3.7 null-safe patterns" goodLabel="3.7+ with optional chaining and nullish coalescing">
+<Fragment slot="bad">
+```ts
+const city = user && user.address && user.address.city
+const port = (config && config.port) !== undefined ? config.port : 3000
+```
+Verbose, easy to typo, and `||` fails when `0` or `''` is a valid value.
+</Fragment>
+<Fragment slot="good">
+```ts
+const city = user?.address?.city
+const port = config?.port ?? 3000
+```
+Same intent, accurate handling of falsy values, much less surface area for bugs.
+</Fragment>
+</Compare>
 
 ## TypeScript 4.x Line
 
@@ -232,6 +271,24 @@ Use it to explain:
 - why modern typing patterns often assume features from 2.8, 3.7, 4.1, 4.9, or 5.0 onward
 - why version awareness helps when reading release notes, migration guides, or framework documentation
 
+<Callout type="tip" title="Use `satisfies`, optional chaining, and `as const` as era markers">
+When you see `x?.y`, `?? 0`, or `as const satisfies`, you are looking at post-4.9 code. When you see pre-3.7 null checks or manually widened config objects, the codebase is running on habits, not the current language.
+</Callout>
+
+## Pitfalls
+
+<Pitfall title="Copy-pasting older patterns from blog posts">
+A 2019 tutorial uses hand-written null-check chains and an enum where a literal union would be cleaner. You inherit both in a fresh codebase. **Fix:** before copying, ask what version the post targeted, then rewrite for the current TypeScript your project uses.
+</Pitfall>
+
+<Pitfall title="Upgrading TypeScript without reading the breaking changes">
+A jump from 4.6 to 5.0 enables `useDefineForClassFields` changes, decorator metadata changes, and stricter config inference. The build goes red in unexpected places. **Fix:** upgrade one minor version at a time where possible, and skim the breaking changes section of each release notes page before merging.
+</Pitfall>
+
+<Pitfall title="Mixing 6.x features in a project targeting older runtimes">
+A library author uses TypeScript 6.0 features but emits CommonJS targeted at Node.js 18. Consumers on older toolchains see strange errors. **Fix:** align the library's declared `engines` and `typescript` peer range with the features you actually use; publish compiled output that matches.
+</Pitfall>
+
 ## Official Release Note References
 
 For official per-version release details, the most useful starting points are:
@@ -244,3 +301,42 @@ For official per-version release details, the most useful starting points are:
 - the current stable TypeScript version is 6.0 as of April 19, 2026
 - not every version matters equally, but several versions changed the language significantly
 - 2.x, 3.7, 4.1, 4.9, 5.0, 5.9, and 6.0 are especially useful milestones to recognize
+
+## Lab
+
+<Lab title="Version-spot an unfamiliar codebase" duration="30 min" difficulty="Easy" stack="TypeScript, git log, release notes">
+
+### Goal
+Open a TypeScript codebase you did not write and infer, from the code alone, the era of TypeScript it was written against. Then check the `package.json` to confirm your guess.
+
+### Steps
+1. Open any open-source TypeScript project on GitHub.
+2. Scan for markers: enum vs literal union, `&&` chains vs `?.`, `as` casts vs `satisfies`, manual partial types vs `Partial`.
+3. Write down the earliest TypeScript version you think supports every pattern you see (use the milestones above).
+4. Open `package.json` and `tsconfig.json` and compare to your guess.
+5. Write a one-paragraph note about what you would modernize first if you inherited the project.
+
+### Success criteria
+- Your guess is within one minor version of the declared TypeScript
+- You can name at least three era markers you relied on
+- Your modernization note references a concrete feature from a specific version
+- You did not Google for patterns before submitting your guess
+
+</Lab>
+
+## Checkpoint
+
+<Checkpoint>
+1. Which TypeScript version introduced `strictNullChecks` and why did it change the language culturally?
+2. What does `satisfies` do and which version added it?
+3. When would you reach for `Awaited<T>` and which release made it a built-in?
+4. How can you tell a codebase predates TypeScript 3.7 from its null-handling style alone?
+5. What is the right reason to upgrade a project to a newer TypeScript minor version?
+</Checkpoint>
+
+## Further reading
+
+- [TypeScript Overview](/learning/typescript/overview/) — the full track that applies these features
+- [Modern TypeScript Coverage](/learning/typescript/modern-typescript-coverage/) — the feature set this path teaches
+- [Advanced TypeScript Patterns](/learning/typescript/advanced-typescript-patterns/) — `as const`, `satisfies`, branded types in practice
+- [tsconfig, Modules, and Declaration Files](/learning/typescript/tsconfig-modules-declaration-files/) — the configuration surface each release revised

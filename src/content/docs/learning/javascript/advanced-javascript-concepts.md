@@ -3,7 +3,25 @@ title: Advanced JavaScript Concepts
 description: Learn advanced JavaScript topics including symbols, bigints, maps, sets, iterators, generators, immutability concerns, and memory awareness.
 ---
 
-This page covers topics that are not always day-one essentials, but they complete a serious JavaScript foundation.
+import LessonMeta from '../../../../components/LessonMeta.astro'
+import Objectives from '../../../../components/Objectives.astro'
+import Callout from '../../../../components/Callout.astro'
+import Pitfall from '../../../../components/Pitfall.astro'
+import Compare from '../../../../components/Compare.astro'
+import Lab from '../../../../components/Lab.astro'
+import Checkpoint from '../../../../components/Checkpoint.astro'
+
+<LessonMeta level="Advanced" duration="30 min" track="JavaScript" prerequisites="Arrays, Objects, and Destructuring; Prototypes, Classes, and OOP; Asynchronous JavaScript" />
+
+These topics are not day-one essentials, but they are what separates a solid JavaScript developer from one who can read any codebase. You will not use `Proxy` weekly, but when you see it, you need to know what it means and what it costs.
+
+<Objectives>
+- Pick between `Map`, `Set`, `WeakMap`, and a plain object with a clear reason
+- Use the new non-mutating array methods (`toSorted`, `with`, etc.) correctly
+- Recognise where `Symbol`, `BigInt`, and `Proxy` are the right tool
+- Use generators to produce lazy or streaming sequences
+- Build a mental model for shallow/deep copying and memory retention
+</Objectives>
 
 ## Symbols
 
@@ -32,6 +50,13 @@ const largeNumber = 9007199254740995n
 ### Teaching point
 
 BigInt is not needed in every project, but learners should know why it exists and why normal numbers have safe integer limits.
+
+<Pitfall title="BigInt and Number cannot mix in arithmetic">
+```js
+1n + 1 // TypeError: Cannot mix BigInt and other types
+```
+The error is intentional — silent coercion would lose precision. **Fix:** convert explicitly with `BigInt(n)` or `Number(b)` at the boundary, and pick one type per code path.
+</Pitfall>
 
 ## Map
 
@@ -63,6 +88,28 @@ const learners = [
 const grouped = Map.groupBy(learners, (learner) => learner.level)
 ```
 
+<Compare badLabel="Object used as a keyed map" goodLabel="Real Map">
+<Fragment slot="bad">
+```js
+const counts = {}
+for (const tag of tags) {
+  counts[tag] = (counts[tag] ?? 0) + 1
+}
+// 'constructor' and '__proto__' as tags cause weird behavior.
+// Non-string keys silently become strings.
+```
+</Fragment>
+<Fragment slot="good">
+```js
+const counts = new Map()
+for (const tag of tags) {
+  counts.set(tag, (counts.get(tag) ?? 0) + 1)
+}
+// Any key type, no prototype collisions, preserves insertion order.
+```
+</Fragment>
+</Compare>
+
 ## Set
 
 `Set` stores unique values.
@@ -82,6 +129,10 @@ Weak collections are advanced structures for object-based keys or values where g
 - `WeakSet` stores object values
 
 These are less common for beginners, but serious JavaScript learners should recognize them in real codebases.
+
+<Callout type="info" title="`WeakMap` is how you attach hidden metadata">
+A `WeakMap` lets you associate extra data with an object you do not own, without leaking memory. When the object is garbage-collected, the entry disappears automatically — no manual cleanup, no stale references.
+</Callout>
 
 ## Newer Object and Array Helpers
 
@@ -191,6 +242,10 @@ const guarded = new Proxy(student, {
 
 This is advanced, but it helps learners understand that JavaScript object behavior can be customized.
 
+<Pitfall title="Proxies make every access a function call">
+Wrapping a hot object in a `Proxy` means every property read/write goes through your trap. For performance-sensitive code, that is measurable overhead, and debuggers sometimes hide the real values. **Fix:** proxy narrow wrappers (config, request contexts), not wide hot data.
+</Pitfall>
+
 ## New Promise and RegExp Helpers
 
 Some newer standard-library helpers are worth recognizing even if they are not daily basics.
@@ -237,6 +292,15 @@ Students should have a basic mental model:
 - accidental retention can cause memory growth
 
 This is especially important later in long-running Node.js services.
+
+<Pitfall title="Closures pinning large objects alive">
+```js
+function attach(bigData) {
+  return () => console.log('done') // still captures bigData
+}
+```
+The returned function retains `bigData` until the function itself is unreachable. **Fix:** copy out only the fields you need, or null out `bigData` after use: `let tmp = bigData; bigData = null; return () => console.log('done')`.
+</Pitfall>
 
 ## `Object.freeze()`
 
@@ -285,9 +349,48 @@ A big learning step is not only writing code, but reading unfamiliar code. Teach
 - build a small generator that yields lesson numbers
 - compare shallow copy behavior with nested objects
 
+## Lab
+
+<Lab title="Replace three objects with the right collection" duration="45 min" difficulty="Medium" stack="Node.js, any REPL">
+
+### Goal
+Take three common "plain-object-as-collection" anti-patterns and upgrade each to the correct modern structure, then add a generator-based reader.
+
+### Steps
+1. Find or write code that counts occurrences using `counts[key]`. Convert to `Map` and show that it handles a key named `'constructor'` without breaking.
+2. Find or write a de-duplication step that uses `Array.from(new Set(arr))` and compare its output to an `Object.groupBy` approach. Keep the one that expresses intent best.
+3. Build a cache of metadata about DOM-like objects (or any objects you do not own) using a `WeakMap`. Demonstrate that dropping the source object allows its metadata to be garbage-collected.
+4. Write `function* paginated(fetcher)` that yields items across pages. Consume it with `for await ... of`.
+5. Add one `structuredClone` call where a spread previously mis-shared nested data; write a test that fails before and passes after.
+
+### Success criteria
+- Your `Map`-based counter survives keys like `'constructor'` and `'__proto__'`
+- Your `WeakMap` cache no longer retains entries after the source object is unreachable (verify with a manual GC in Node: `node --expose-gc` + `global.gc()`)
+- Your generator lazily fetches pages only as they are consumed
+- No `JSON.parse(JSON.stringify(x))` clones remain
+
+</Lab>
+
+## Checkpoint
+
+<Checkpoint>
+1. Name two concrete cases where `Map` is strictly better than a plain object.
+2. Which of `sort`, `toSorted`, `splice`, `toSpliced`, `reverse`, `with` return a new array?
+3. When is a `WeakMap` the right cache, and when is a `Map` better?
+4. What does `Proxy` cost you at runtime, and what problem does it solve that nothing else does?
+5. You see `structuredClone(obj)` in code. What does it handle that `{ ...obj }` does not?
+</Checkpoint>
+
 ## What To Remember
 
 - advanced JavaScript is easier when fundamentals are already strong
 - `Map`, `Set`, `Symbol`, `BigInt`, and newer helpers solve real problems
 - immutability and memory awareness matter in real applications
 - reading advanced code becomes much easier once the mental model is clear
+
+## Further reading
+
+- [Modern JavaScript Coverage](/learning/javascript/modern-javascript-coverage/) — the full map of what this track treats as modern
+- [JavaScript Versions and ECMAScript History](/learning/javascript/javascript-versions-history/) — when each helper landed
+- [Asynchronous JavaScript](/learning/javascript/asynchronous-javascript/) — where `Promise.withResolvers` fits
+- [MDN: Keyed collections](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections)

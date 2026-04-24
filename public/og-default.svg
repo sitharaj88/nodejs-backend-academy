@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Node.js Backend Academy">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b111c" />
+      <stop offset="0.5" stop-color="#0d1624" />
+      <stop offset="1" stop-color="#0a1a14" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#68d391" />
+      <stop offset="1" stop-color="#67d6f5" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.15" r="0.7">
+      <stop offset="0" stop-color="#68d391" stop-opacity="0.28" />
+      <stop offset="0.6" stop-color="#68d391" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0 L0 0 0 60" fill="none" stroke="#1c2a3d" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.35" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+
+  <!-- Node hexagon mark -->
+  <g transform="translate(84 82)">
+    <polygon points="60,0 115,32 115,92 60,124 5,92 5,32"
+             fill="none" stroke="url(#accent)" stroke-width="3.5" />
+    <text x="60" y="78" text-anchor="middle" font-family="Manrope, sans-serif"
+          font-size="40" font-weight="900" fill="url(#accent)">N</text>
+  </g>
+
+  <text x="230" y="148" font-family="Manrope, sans-serif" font-size="24"
+        font-weight="800" fill="#68d391" letter-spacing="4">
+    NODE.JS BACKEND ACADEMY
+  </text>
+
+  <!-- Headline -->
+  <g font-family="Manrope, sans-serif" fill="#edf2f7">
+    <text x="84" y="268" font-size="88" font-weight="900" letter-spacing="-2">
+      From language
+    </text>
+    <text x="84" y="356" font-size="88" font-weight="900" letter-spacing="-2">
+      fundamentals
+    </text>
+    <text x="84" y="444" font-size="88" font-weight="900" letter-spacing="-2" fill="url(#accent)">
+      to production.
+    </text>
+  </g>
+
+  <!-- Footer line -->
+  <g font-family="Manrope, sans-serif" fill="#94a3b8">
+    <text x="84" y="540" font-size="24" font-weight="700" letter-spacing="0.5">
+      13 modules · 27 weeks · 120+ concept pages · 4 capstones
+    </text>
+    <text x="84" y="578" font-size="20" font-weight="600" fill="#64748b">
+      JavaScript · TypeScript · Node · Express · Databases · Security · Architecture · DevOps · System Design
+    </text>
+  </g>
+
+  <!-- Chevron accent -->
+  <g transform="translate(1000 430)" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M0 0 L48 60 L0 120" />
+    <path d="M50 0 L98 60 L50 120" opacity="0.55" />
+    <path d="M100 0 L148 60 L100 120" opacity="0.25" />
+  </g>
+</svg>

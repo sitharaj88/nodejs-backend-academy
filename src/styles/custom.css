@@ -249,11 +249,14 @@ body {
 }
 
 .hero h1 {
-  max-width: 11ch;
+  max-width: 18ch;
   font-size: 4rem;
-  line-height: 0.98;
+  line-height: 1.02;
   font-weight: 900;
   letter-spacing: -0.02em;
+  overflow-wrap: normal;
+  word-break: keep-all;
+  hyphens: none;
   background: linear-gradient(120deg,
     var(--academy-ink) 0%,
     var(--academy-node-deep) 55%,
@@ -1237,7 +1240,7 @@ button[data-open-modal] {
 
 @media (max-width: 900px) {
   .hero h1 {
-    max-width: 14ch;
+    max-width: 20ch;
     font-size: 3.1rem;
   }
 
